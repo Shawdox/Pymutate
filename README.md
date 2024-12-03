@@ -63,7 +63,7 @@ var_9tl = 59
 z = 3
 ```
 
-- **Deadcode_AssignUnfoldding**
+- **AssignUnfoldding**
 
 Each assignment operation has a probability `p` (0.5 currently) of being converted.
 
@@ -71,6 +71,14 @@ Each assignment operation has a probability `p` (0.5 currently) of being convert
 a = b + c
 
 a = b; a = a + c
+```
+
+- **ConstantUnfoldding**
+
+```python
+a = 5
+ 
+a = (7 -2)
 ```
 
 
