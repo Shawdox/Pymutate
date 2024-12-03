@@ -2,6 +2,8 @@ import random
 import libcst as cst
 from libcst.tool import dump
 
+p = 0.5
+
 def randomString(length):
     baseStr = 'abcdefghijklmnopqrstuvwxyz1234567890'
     return ''.join(random.sample(baseStr, length))
@@ -87,7 +89,7 @@ class AugAssign2Assign(cst.CSTTransformer):
 # Each assignment operation has a probability p of being converted
 class Deadcode_Assign2Ternary(cst.CSTTransformer):
     def leave_Assign(self, original_node: cst.Assign, updated_node: cst.Assign):
-        p = 0.5
+        #p = 0.5
         if random.random() <= p:
             Assign_targets = original_node.targets
             Assign_value = original_node.value
@@ -118,7 +120,7 @@ class Deadcode_Assign2Ternary(cst.CSTTransformer):
 # At random location
 class Deadcode_Add_IndependentVar(cst.CSTTransformer):
     def leave_IndentedBlock(self, original_node: cst.IndentedBlock, updated_node: cst.IndentedBlock):
-            p = 0.5
+            #p = 0.5
             if random.random() <= p:
                 dead_assign =  cst.Assign(
                     targets = [cst.AssignTarget(cst.Name('var_'+randomString(3)))],
@@ -137,9 +139,9 @@ class Deadcode_Add_IndependentVar(cst.CSTTransformer):
                 return original_node
 
 # a = b + c --> a = b; a = a + c
-class Deadcode_AssignUnfoldding(cst.CSTTransformer):
+class AssignUnfoldding(cst.CSTTransformer):
     def leave_Assign(self, original_node: cst.Assign, updated_node: cst.Assign):
-        p = 0.5
+        #p = 0.5
         if random.random() <= p:
             Assign_targets = original_node.targets
             Assign_value = original_node.value
@@ -166,6 +168,46 @@ class Deadcode_AssignUnfoldding(cst.CSTTransformer):
                     assign_1, 
                     assign_2,
                 ])
+            return original_node
+        else:
+            return original_node
+
+# m = 0 --> m = 3 - 3
+class ConstantUnfoldding(cst.CSTTransformer):
+    def leave_Assign(self, original_node: cst.Assign, updated_node: cst.Assign):
+        if random.random() <= p:
+            Assign_targets = original_node.targets[0]
+            Assign_value = original_node.value
+            if isinstance(Assign_value, cst.Integer):
+                num = int(Assign_value.value)
+                randnum = random.randint(1, 100)
+                num = num - randnum
+                if num >= 0:
+                    new_assign = cst.Assign(
+                        targets = [Assign_targets],
+                        value = cst.BinaryOperation(
+                                left = cst.Integer(value = str(randnum)),
+                                operator= cst.Add(),
+                                right = cst.Integer(value = str(num)),
+                                lpar = [cst.LeftParen(),],
+                                rpar = [cst.RightParen(),],
+                            )
+                    )
+                else:
+                    new_assign = cst.Assign(
+                        targets = [Assign_targets],
+                        value = cst.BinaryOperation(
+                                left = cst.Integer(value = str(randnum)),
+                                operator= cst.Add(),
+                                right = cst.UnaryOperation(
+                                    operator = cst.Minus(),
+                                    expression = cst.Integer(value = str(-1*num)),
+                                ),
+                                lpar = [cst.LeftParen(),],
+                                rpar = [cst.RightParen(),],
+                            )
+                    )
+                return cst.FlattenSentinel([new_assign,])
             return original_node
         else:
             return original_node

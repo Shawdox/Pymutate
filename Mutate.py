@@ -96,7 +96,9 @@ def mutate_dataset_once(mutator, dataset):
     
 # Load the dataset
 SKIP_LIST = [289, 258, 375, 382, 452, 490, 711]
-MUTATORS = [For2While, AugAssign2Assign, Deadcode_Assign2Ternary, Deadcode_Add_IndependentVar, Deadcode_AssignUnfoldding]
+#MUTATORS = [For2While, AugAssign2Assign, Deadcode_Assign2Ternary, 
+#            Deadcode_Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding,]
+MUTATORS = [ConstantUnfoldding]
 dataset = []
 with open(DATASET, 'r') as f:
     for line in f:
