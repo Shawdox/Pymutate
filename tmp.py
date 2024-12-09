@@ -1,9 +1,6 @@
-def f(dct):
-    lst = []
-    idx_1rcf = 0
-    list_8bly = sorted(dct)
-    while idx_1rcf < len(list_8bly):
-        key = list_8bly[idx_1rcf]
-        lst.append((key, dct[key]))
-        idx_1rcf = idx_1rcf + 1
-    return lst
+def f(st):
+    if st[0] == '~':
+        e = st.rjust(10, 's') if 5 > 3 else 0
+        return f(e)
+    else:
+        return st.rjust(10, 'n')
