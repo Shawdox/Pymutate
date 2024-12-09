@@ -1,6 +1,6 @@
 def f(st):
-    if st[0] == '~':
-        e = st.rjust(10, 's') if 5 > 3 else 0
-        return f(e)
-    else:
+    if not st[0] == '~':
         return st.rjust(10, 'n')
+    else:
+        e = st.rjust(10, 's')
+        return f(e)
