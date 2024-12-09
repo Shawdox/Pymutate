@@ -81,6 +81,39 @@ a = 5
 a = (7 -2)
 ```
 
+- **IfReverse**
+
+```python
+def f(): 
+    a = 1
+    b = 0
+    if a:
+        print("123")
+    elif b:
+        print("456")
+    else:
+        print("789")
+    
+    if not a:
+        None
+        
+def mutated_f(): 
+    a = 1
+    b = 0
+    if not a: 
+        if b:
+            print("456")
+        else:
+            print("789")
+    else:
+        print("123")
+    
+    if not a:
+        None
+```
+
+
+
 ### Python scripts
 
 - `mutators.py`:  Mutator definitions.
