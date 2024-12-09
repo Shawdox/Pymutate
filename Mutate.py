@@ -10,8 +10,10 @@ import inspect
 import imp
 import subprocess
 import time
+import timeout_decorator
 import eventlet
 import colorit
+import sys, traceback
 
 DATASET = "/home/WORK/PAPER4/LLMreasoning/cruxeval/data/cruxeval.jsonl"
 
@@ -32,13 +34,21 @@ def CODE_PRINT(data):
     print(f"[*] Code:\n {highlight_code}")
 
 
-def save_data(data, name):
-    with open(f'./new_data/{name}.jsonl','w') as f:
+def save_data(data, path):
+    with open(path,'w') as f:
         for entry in data:
             json_line = json.dumps(entry)
             f.write(json_line + '\n')
 
+def load_dataset(path):
+    dataset = []
+    with open(path, 'r') as f:
+        for line in f.readlines():
+            dataset.append(json.loads(line))
+    INFO_PRINT("Dataset loaded:", f"{len(dataset)} entries.")
+    return dataset
 
+@timeout_decorator.timeout(3)
 def execute_code(code: str, input: str):
     with open('./tmp.py','w') as file:
         file.write(code)
@@ -59,9 +69,11 @@ def execute_code(code: str, input: str):
 
 def evaluate_code(mutated_code: str, input: str, output: str):
     try:
-        with eventlet.Timeout(2):
             output1 = execute_code(mutated_code, input)
-    except:
+    except Exception as e:
+        print('str(Exception):\t', str(Exception))
+        print('str(e):\t\t', str(e))
+        print('repr(e):\t', repr(e))
         return False
     else:
         if '\\n' in output:
@@ -69,8 +81,13 @@ def evaluate_code(mutated_code: str, input: str, output: str):
         if '\\\\' in output:
             output = output.replace('\\\\','\\')
         if output[0] == output[-1] == "'" :
-            return str(output1) == output[1:-1]
-        return str(output1) == output
+            output1 = str(output1)
+            output = output[1:-1]
+            #return str(output1) == output[1:-1]
+        if str(output1) != output:
+            INFO_PRINT('Different results:', f"output = {output}, output1 = {output1}")
+            return False
+        return True
 
 def mutate_dataset_once(mutator, dataset):
     new_dataset = []
@@ -92,26 +109,47 @@ def mutate_dataset_once(mutator, dataset):
             new_dataset.append(new_data)
             new_id += 1
     INFO_PRINT(f"Mutate dataset with mutator {mutator.__name__}:", new_id+1)
-    save_data(new_dataset, f'{mutator.__name__}_{new_id+1}')
+    save_data(new_dataset, f'./new_data/{mutator.__name__}.jsonl')
+
+def exclude_dataset(dataset_path, error_code_idx):
+    dataset = load_dataset(dataset_path)
+    new_dataset = []
+    for idx,line in enumerate(dataset):
+        if idx in error_code_idx:
+            continue
+        new_dataset.append(line)
     
+    save_data(new_dataset, dataset_path)
+        
+        
 # Load the dataset
 SKIP_LIST = [289, 258, 375, 382, 452, 490, 711]
 #MUTATORS = [For2While, AugAssign2Assign, Deadcode_Assign2Ternary, 
 #            Deadcode_Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding,]
-MUTATORS = [ConstantUnfoldding]
-dataset = []
-with open(DATASET, 'r') as f:
-    for line in f:
-        dataset.append(json.loads(line))
-INFO_PRINT("Dataset loaded:", f"{len(dataset)} entries.")
-
+MUTATORS = [AugAssign2Assign]
+#dataset = []
+#with open(DATASET, 'r') as f:
+#    for line in f:
+#        dataset.append(json.loads(line))
+#INFO_PRINT("Dataset loaded:", f"{len(dataset)} entries.")
+dataset = load_dataset(DATASET)
 
 # mutate
-for mutator in MUTATORS:
-    mutate_dataset_once(mutator, dataset)
+#for mutator in MUTATORS:
+#    mutate_dataset_once(mutator, dataset)
 
+#num = 0
+#for idx in range(0, len(dataset)):
+#    code = dataset[idx]["code"]
+#    input = dataset[idx]["input"]
+#    output = dataset[idx]["output"]
+#    if 'for ' in code:
+#        num += 1
+#print(f'num = {num}')
 # Evaluate the code by running it
-""" error_code_idx = []
+evaluate_dataset = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/Deadcode_Assign2Ternary.jsonl"
+new_dataset = load_dataset(evaluate_dataset)
+error_code_idx = []
 for idx in range(0, len(new_dataset)):
     code = new_dataset[idx]["code"]
     input = new_dataset[idx]["input"]
@@ -120,4 +158,7 @@ for idx in range(0, len(new_dataset)):
     if not evaluate_code(code, input, output):
         print(f'[*] Error generated code: {idx}')
         error_code_idx.append(idx)
-print(f"{len(error_code_idx)} problematic code generated: {error_code_idx}") """
+print(f"{len(error_code_idx)} problematic code generated: {error_code_idx}")
+
+exclude_dataset(evaluate_dataset, [48,65])
+    

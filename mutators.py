@@ -2,7 +2,7 @@ import random
 import libcst as cst
 from libcst.tool import dump
 
-p = 0.5
+p = 0.7
 
 def randomString(length):
     baseStr = 'abcdefghijklmnopqrstuvwxyz1234567890'
@@ -13,6 +13,7 @@ class For2While(cst.CSTTransformer):
         # Extract the target, iterable, and body
         target = original_node.target
         iterable = original_node.iter
+        body = original_node.body.body
         #print(iterable)
 
         # Create the new while structure
@@ -37,12 +38,32 @@ class For2While(cst.CSTTransformer):
             ]
         )   
         # list = [iter]
-        list_assign = cst.SimpleStatementLine(
-            body = [cst.Assign(
-                targets=[cst.AssignTarget(list_var)],
-                value=iterable,
-            )]
-        )
+        if isinstance(iterable, cst.Call):
+            if iterable.func.value == "enumerate" or \
+                (hasattr(iterable.func, "attr") and iterable.func.attr.value == "items"):
+                list_assign = cst.SimpleStatementLine(
+                    body = [cst.Assign(
+                        targets=[cst.AssignTarget(list_var)],
+                        value=cst.Call(
+                                func=cst.Name(value='list'),
+                                args=[cst.Arg(iterable)],
+                            ),
+                    )]
+                )        
+            else: 
+                list_assign = cst.SimpleStatementLine(
+                    body = [cst.Assign(
+                        targets=[cst.AssignTarget(list_var)],
+                        value=iterable,
+                    )]
+                )
+        else:
+            list_assign = cst.SimpleStatementLine(
+                body = [cst.Assign(
+                    targets=[cst.AssignTarget(list_var)],
+                    value=iterable,
+                )]
+            )
         # idx = idx + 1
         increment_i = cst.SimpleStatementLine(
             body = [cst.Assign(
@@ -75,11 +96,19 @@ class AugAssign2Assign(cst.CSTTransformer):
         operator = original_node.operator
         value = original_node.value
         
+        if isinstance(operator, cst.AddAssign):
+            new_operator = cst.Add()
+        elif isinstance(operator, cst.SubtractAssign):
+            new_operator = cst.Subtract()
+        elif isinstance(operator, cst.MultiplyAssign):
+            new_operator = cst.Multiply()
+        elif isinstance(operator, cst.DivideAssign):
+            new_operator = cst.Divide()         
         assign = cst.Assign(
             targets = [cst.AssignTarget(target)],
             value = cst.BinaryOperation(
                 left = target,
-                operator = cst.Add(),
+                operator = new_operator,
                 right = value,
             )
         )
@@ -141,25 +170,30 @@ class Deadcode_Add_IndependentVar(cst.CSTTransformer):
 # a = b + c --> a = b; a = a + c
 class AssignUnfoldding(cst.CSTTransformer):
     def leave_Assign(self, original_node: cst.Assign, updated_node: cst.Assign):
-        #p = 0.5
+        p = 1
         if random.random() <= p:
-            Assign_targets = original_node.targets
+            Assign_targets = original_node.targets[0]
             Assign_value = original_node.value
             if isinstance(Assign_value, cst.BinaryOperation):
                 operator = Assign_value.operator
                 right_b = Assign_value.left
                 right_c = Assign_value.right
                 
+                if isinstance(right_b, cst.Name) and right_b.value == Assign_targets.target.value:
+                    return original_node
+                if isinstance(right_c, cst.Name) and right_c.value == Assign_targets.target.value:
+                    return original_node
+                
                 # a = b
                 assign_1 = cst.Assign(
-                    targets = [Assign_targets[0],],
+                    targets = [Assign_targets,],
                     value = right_b,
                 )
                 # a = a + c
                 assign_2 = cst.Assign(
-                    targets = [Assign_targets[0],],
+                    targets = [Assign_targets,],
                     value = cst.BinaryOperation(
-                        left = Assign_targets[0].target,
+                        left = Assign_targets.target,
                         operator= operator,
                         right = right_c,
                     )
