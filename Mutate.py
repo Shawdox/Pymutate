@@ -126,7 +126,7 @@ def exclude_dataset(dataset_path, error_code_idx):
 SKIP_LIST = [289, 258, 375, 382, 452, 490, 711]
 #MUTATORS = [For2While, AugAssign2Assign, Deadcode_Assign2Ternary, 
 #            Deadcode_Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding,]
-MUTATORS = [AugAssign2Assign]
+MUTATORS = [IfReverse]
 #dataset = []
 #with open(DATASET, 'r') as f:
 #    for line in f:
@@ -138,16 +138,8 @@ dataset = load_dataset(DATASET)
 #for mutator in MUTATORS:
 #    mutate_dataset_once(mutator, dataset)
 
-#num = 0
-#for idx in range(0, len(dataset)):
-#    code = dataset[idx]["code"]
-#    input = dataset[idx]["input"]
-#    output = dataset[idx]["output"]
-#    if 'for ' in code:
-#        num += 1
-#print(f'num = {num}')
 # Evaluate the code by running it
-evaluate_dataset = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/Deadcode_Assign2Ternary.jsonl"
+evaluate_dataset = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/IfReverse.jsonl"
 new_dataset = load_dataset(evaluate_dataset)
 error_code_idx = []
 for idx in range(0, len(new_dataset)):
@@ -160,5 +152,5 @@ for idx in range(0, len(new_dataset)):
         error_code_idx.append(idx)
 print(f"{len(error_code_idx)} problematic code generated: {error_code_idx}")
 
-exclude_dataset(evaluate_dataset, [48,65])
+exclude_dataset(evaluate_dataset, [91])
     

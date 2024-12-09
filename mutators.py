@@ -245,7 +245,31 @@ class ConstantUnfoldding(cst.CSTTransformer):
             return original_node
         else:
             return original_node
-        
+
+class IfReverse(cst.CSTTransformer):
+    def leave_If(self, original_node: cst.If, updated_node: cst.If):
+        test = original_node.test
+        body = original_node.body
+        if original_node.orelse == None:
+            return original_node
+        orelse = original_node.orelse
+        if isinstance(orelse, cst.Else):
+            new_body = orelse.body
+        elif isinstance(orelse, cst.If):
+            new_body = cst.IndentedBlock(body = [orelse,])
+        else:
+            return original_node
+        new_test = cst.UnaryOperation(
+            operator = cst.Not(),
+            expression = test,
+        )
+        newIf = cst.If(
+            test = new_test,
+            body = new_body,
+            orelse = cst.Else(body = body),
+        )
+        return newIf
+
 def mutate(code, mutator):
     tree = cst.parse_module(code)
     transformed_tree = tree.visit(mutator())
