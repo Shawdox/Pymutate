@@ -24,8 +24,8 @@ def f1(var1):
     var2 = len(var1)
     idx = 2
     while idx < var2:
-			var1.sort()
-			idx += 1
+	var1.sort()
+	idx += 1
     return var1
 ```
 
