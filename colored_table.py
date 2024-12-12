@@ -15,9 +15,9 @@ def get_color(before_value, after_value):
     cmap = matplotlib.colormaps['bwr']
     diff = before_value - after_value
     if diff > 0:
-        diff = 128 - int((diff/before_value)*255/2)*6
+        diff = 128 - int((diff/before_value)*255/3)*6
     elif diff < 0:
-        diff = 127 + int((-1*diff/before_value)*255/2)*6
+        diff = 127 + int((-1*diff/before_value)*255/3)*6
     else:
         return "ffffff"
     color = rgb2hex(cmap(diff, bytes=True))[2:].zfill(6)
