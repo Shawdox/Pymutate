@@ -123,13 +123,21 @@ if a and ((10 > 5) or (3 < 1))
 
 ```
 
+- **StringUnfoldding**
 
+```python
+"abcd"
+
+"ab" + "cd"
+
+```
 
 ### Python scripts
 
 - `mutators.py`:  Mutator definitions.
 - `Mutate.py`: Main function.
 - `tmp.py`: Temp file for evaluate the function in dataset.
+- `colored_table.py`: Script for coloring the table for further anlysis.
 
 ### Testing Results
 https://docs.google.com/spreadsheets/d/1yL7ayoBuShTkTuEwIWZKzHYcVFu5u5Rv7GNG-qxscdU/edit?gid=0#gid=0
