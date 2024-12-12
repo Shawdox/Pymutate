@@ -1,6 +1,6 @@
 def f(st):
-    if not st[0] == '~':
-        return st.rjust(10, 'n')
-    else:
-        e = st.rjust(10, 's')
+    if st[(5 + -5)] == '~':
+        e = st.rjust((9 + 1), 's')
         return f(e)
+    else:
+        return st.rjust((96 + -86), 'n')
