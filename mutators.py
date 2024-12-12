@@ -2,6 +2,7 @@ import random
 import libcst as cst
 from libcst.tool import dump
 
+random.seed(1)
 p = 0.7
 
 def randomString(length):
