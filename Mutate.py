@@ -97,7 +97,7 @@ def mutate_dataset_once(mutator, dataset):
         input = dataset[idx]["input"]
         output = dataset[idx]["output"]
         id = dataset[idx]["id"]
-        CODE_PRINT(dataset[idx])
+        #CODE_PRINT(dataset[idx])
         new_code = mutate(code, mutator)
         new_data = {'code': new_code, 
                     'input': input, 
