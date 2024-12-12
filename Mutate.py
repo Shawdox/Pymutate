@@ -120,13 +120,26 @@ def exclude_dataset(dataset_path, error_code_idx):
         new_dataset.append(line)
     
     save_data(new_dataset, dataset_path)
-        
+
+def evaluate_dataset(dataset_path):
+    new_dataset = load_dataset(dataset_path)
+    error_code_idx = []
+    for idx in range(0, len(new_dataset)):
+        code = new_dataset[idx]["code"]
+        input = new_dataset[idx]["input"]
+        output = new_dataset[idx]["output"]
+        print(f"[*] {idx}/{len(new_dataset)}")
+        if not evaluate_code(code, input, output):
+            print(f'[*] Error generated code: {idx}')
+            error_code_idx.append(idx)
+    print(f"{len(error_code_idx)} problematic code generated: {error_code_idx}")
+    return error_code_idx
         
 # Load the dataset
 SKIP_LIST = [289, 258, 375, 382, 452, 490, 711]
 #MUTATORS = [For2While, AugAssign2Assign, Deadcode_Assign2Ternary, 
 #            Deadcode_Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding,]
-MUTATORS = [IfReverse]
+MUTATORS = [ConstantUnfoldding]
 #dataset = []
 #with open(DATASET, 'r') as f:
 #    for line in f:
@@ -135,22 +148,12 @@ MUTATORS = [IfReverse]
 dataset = load_dataset(DATASET)
 
 # mutate
-#for mutator in MUTATORS:
-#    mutate_dataset_once(mutator, dataset)
+for mutator in MUTATORS:
+    mutate_dataset_once(mutator, dataset)
 
 # Evaluate the code by running it
-evaluate_dataset = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/IfReverse.jsonl"
-new_dataset = load_dataset(evaluate_dataset)
-error_code_idx = []
-for idx in range(0, len(new_dataset)):
-    code = new_dataset[idx]["code"]
-    input = new_dataset[idx]["input"]
-    output = new_dataset[idx]["output"]
-    print(f"[*] {idx}/{len(new_dataset)}")
-    if not evaluate_code(code, input, output):
-        print(f'[*] Error generated code: {idx}')
-        error_code_idx.append(idx)
-print(f"{len(error_code_idx)} problematic code generated: {error_code_idx}")
+evaluate_dataset("/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/ConstantUnfoldding.jsonl")
 
-exclude_dataset(evaluate_dataset, [91])
+
+#exclude_dataset(evaluate_dataset, [91])
     

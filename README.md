@@ -112,6 +112,17 @@ def mutated_f():
         None
 ```
 
+- **If_AddShortCircuiting**
+
+```python
+if a:
+
+if a and (True or False) and (False and True)
+
+if a and ((10 > 5) or (3 < 1))
+
+```
+
 
 
 ### Python scripts
