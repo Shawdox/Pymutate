@@ -292,6 +292,118 @@ class IfReverse(cst.CSTTransformer):
         )
         return newIf
 
+def TrueExpression():
+    # ((True or False) and (False or True))
+    candidate1 = cst.BooleanOperation(
+        left = cst.BooleanOperation(
+            left = cst.Name(value = 'True'),
+            operator = cst.Or(),
+            right = cst.Name(value = 'False'),
+            lpar=[cst.LeftParen(),],
+            rpar=[cst.RightParen(),],
+        ),
+        operator = cst.And(),
+        right = cst.BooleanOperation(
+            left = cst.Name(value = 'False'),
+            operator = cst.Or(),
+            right = cst.Name(value = 'True'),
+            lpar=[cst.LeftParen(),],
+            rpar=[cst.RightParen(),],
+        ),
+        lpar=[cst.LeftParen(),],
+        rpar=[cst.RightParen(),],
+    )
+    # (5 > 3)
+    rand1 = random.randint(2,10)
+    rand2 = random.randint(0,rand1-1)
+    candidate2 = cst.Comparison(
+        left = cst.Integer(value=str(rand1)),
+        comparisons = [cst.ComparisonTarget(
+            operator = cst.GreaterThan(),
+            comparator = cst.Integer(value = str(rand2)),
+        )],
+        lpar=[cst.LeftParen(),],
+        rpar=[cst.RightParen(),],
+    )
+    # (7 < 4)
+    rand3 = random.randint(2,10)
+    rand4 = random.randint(0,rand1-1)
+    candidate2_re = cst.Comparison(
+        left = cst.Integer(value=str(rand1)),
+        comparisons = [cst.ComparisonTarget(
+            operator = cst.LessThan(),
+            comparator = cst.Integer(value = str(rand2)),
+        )],
+        lpar=[cst.LeftParen(),],
+        rpar=[cst.RightParen(),],
+    )
+    #candidates = [candidate1, candidate2]
+    
+    compound_expression = cst.BooleanOperation(
+        left = candidate1,
+        operator = cst.And(),
+        right = cst.BooleanOperation(
+            left = candidate2,
+            operator = cst.Or(),
+            right = candidate2_re,
+            lpar=[cst.LeftParen(),],
+            rpar=[cst.RightParen(),],
+        ),
+        lpar=[cst.LeftParen(),],
+        rpar=[cst.RightParen(),],
+    )
+    
+    return compound_expression
+
+class If_AddShortCircuiting(cst.CSTTransformer):
+    def leave_If(self, original_node: cst.If, updated_node: cst.If):
+        test = original_node.test
+        body = original_node.body
+        orelse = original_node.orelse
+        
+        new_test = cst.BooleanOperation(
+            left = test,
+            operator = cst.And(),
+            right = TrueExpression(),
+        )
+        return cst.If(
+            test = new_test,
+            body = body,
+            orelse = orelse,
+        )
+
+class StringUnfoldding(cst.CSTTransformer):
+    def leave_SimpleString(self, original_node: cst.SimpleString, updated_node: cst.SimpleString):
+        value = original_node.value
+        if len(value) <= 1 or value[0:2] in ["b'", 'b"', "f'", 'f"',  "r'", 'r"']:
+            return original_node
+        if value[0:3] == '"""':
+            return original_node
+        randidx = random.randint(0, len(value))
+        
+        str1 = value[0:randidx]
+        str2 = value[randidx:len(value)]
+        if str1 == '' or str1 == "":
+            str1 = value[0] + value[0]
+        elif str1[-1] != value[0] or len(str1) == 1:
+            str1 += value[0]
+            
+        if str2 == '' or str2 == "":
+            str2 = value[0] + value[0]
+        elif str2[0] != value[0] or len(str2) == 1:
+            str2 = value[0] + str2        
+        str1 = cst.SimpleString(value=str1)
+        str2 = cst.SimpleString(value=str2)
+        
+        return cst.BinaryOperation(
+            left = str1,
+            operator= cst.Add(),
+            right= str2,
+            lpar = [cst.LeftParen(),],
+            rpar = [cst.RightParen(),],
+        )
+         
+
 def mutate(code, mutator):
     tree = cst.parse_module(code)
     transformed_tree = tree.visit(mutator())

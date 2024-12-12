@@ -97,7 +97,7 @@ def mutate_dataset_once(mutator, dataset):
         input = dataset[idx]["input"]
         output = dataset[idx]["output"]
         id = dataset[idx]["id"]
-        
+        CODE_PRINT(dataset[idx])
         new_code = mutate(code, mutator)
         new_data = {'code': new_code, 
                     'input': input, 
@@ -139,7 +139,7 @@ def evaluate_dataset(dataset_path):
 SKIP_LIST = [289, 258, 375, 382, 452, 490, 711]
 #MUTATORS = [For2While, AugAssign2Assign, Deadcode_Assign2Ternary, 
 #            Deadcode_Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding,]
-MUTATORS = [ConstantUnfoldding]
+MUTATORS = [StringUnfoldding]
 #dataset = []
 #with open(DATASET, 'r') as f:
 #    for line in f:
@@ -148,12 +148,13 @@ MUTATORS = [ConstantUnfoldding]
 dataset = load_dataset(DATASET)
 
 # mutate
-for mutator in MUTATORS:
-    mutate_dataset_once(mutator, dataset)
+#for mutator in MUTATORS:
+#    mutate_dataset_once(mutator, dataset)
 
 # Evaluate the code by running it
-evaluate_dataset("/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/ConstantUnfoldding.jsonl")
+exclude_dataset("/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/StringUnfoldding.jsonl", 
+                [57, 60, 118, 158, 166, 205, 231, 255, 270, 283, 284, 300, 317])
+evaluate_dataset("/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/StringUnfoldding.jsonl")
 
 
-#exclude_dataset(evaluate_dataset, [91])
     
