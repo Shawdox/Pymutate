@@ -38,7 +38,7 @@ x += 1
 x = x + 1
 ```
 
-- **Deadcode_Assign2Ternary**
+- **Assign2Ternary**
 
 Each assignment operation has a probability `p` (0.5 currently) of being converted.
 
@@ -48,7 +48,7 @@ x = y
 x = y if 1>0 else z
 ```
 
-- **Deadcode_Add_IndependentVar**
+- **Add_IndependentVar**
 
 Random add random independent variable like (`var_9tl = 59`) at random (p = 0.5) location.
 
@@ -131,6 +131,8 @@ if a and ((10 > 5) or (3 < 1))
 "ab" + "cd"
 
 ```
+
+### Multi-mutate
 
 ### Python scripts
 
