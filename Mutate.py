@@ -89,11 +89,12 @@ def evaluate_code(mutated_code: str, input: str, output: str):
 def mutate_dataset_once(mutator, dataset):
     new_dataset = []
     new_id = 0
+    original_dataset = load_dataset(DATASET)
     for idx in range(0, len(dataset)):
         code = dataset[idx]["code"]
         input = dataset[idx]["input"]
         output = dataset[idx]["output"]
-        id = dataset[idx]["id"]
+        original_id = original_dataset[idx]["id"]
         #CODE_PRINT(dataset[idx])
         try:
             new_code = mutate(code, mutator)
@@ -105,8 +106,8 @@ def mutate_dataset_once(mutator, dataset):
         new_data = {'code': new_code, 
                     'input': input, 
                     'output': output, 
-                    'id':f"{mutator.__name__}_sample_from_{idx}_to_{new_id}", 
-                    'old_id':id}
+                    'id':f"{mutator.__name__}_sample_from_{original_id}_to_{new_id}", 
+                    'old_id':original_id}
         if new_code != code:
             #CODE_PRINT(new_data)
             new_dataset.append(new_data)
