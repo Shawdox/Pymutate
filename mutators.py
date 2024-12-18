@@ -3,7 +3,7 @@ import libcst as cst
 from libcst.tool import dump
 
 random.seed(1)
-p = 0.7
+p = 1
 
 def randomString(length):
     baseStr = 'abcdefghijklmnopqrstuvwxyz1234567890'
@@ -117,7 +117,7 @@ class AugAssign2Assign(cst.CSTTransformer):
 
 # x = y --> x = y if 1>0 else z
 # Each assignment operation has a probability p of being converted
-class Deadcode_Assign2Ternary(cst.CSTTransformer):
+class Assign2Ternary(cst.CSTTransformer):
     def leave_Assign(self, original_node: cst.Assign, updated_node: cst.Assign):
         #p = 0.5
         if random.random() <= p:
@@ -148,7 +148,7 @@ class Deadcode_Assign2Ternary(cst.CSTTransformer):
         
 # Random add random independent variable like: var_9tl = 59
 # At random location
-class Deadcode_Add_IndependentVar(cst.CSTTransformer):
+class Add_IndependentVar(cst.CSTTransformer):
     def leave_IndentedBlock(self, original_node: cst.IndentedBlock, updated_node: cst.IndentedBlock):
             #p = 0.5
             if random.random() <= p:
@@ -356,7 +356,7 @@ def TrueExpression():
     
     return compound_expression
 
-class If_AddShortCircuiting(cst.CSTTransformer):
+class IfAddShortCircuiting(cst.CSTTransformer):
     def leave_If(self, original_node: cst.If, updated_node: cst.If):
         test = original_node.test
         body = original_node.body
@@ -380,13 +380,22 @@ class StringUnfoldding(cst.CSTTransformer):
             return original_node
         if value[0:3] == '"""':
             return original_node
-        randidx = random.randint(0, len(value))
-        
+        if value == '"\\n"' or value == "'\\n'":
+            return original_node
+        if value == '"\\t"' or value == "'\\t'":
+            return original_node
+        while True:
+            randidx = random.randint(0, len(value)-1)
+            if randidx>0:
+                if value[randidx-1] != '\\' or value[randidx-1] != "\\":
+                    break
+            else:
+                break
         str1 = value[0:randidx]
         str2 = value[randidx:len(value)]
         if str1 == '' or str1 == "":
             str1 = value[0] + value[0]
-        elif str1[-1] != value[0] or len(str1) == 1:
+        elif (str1[-1] != value[0]) or len(str1) == 1 or randidx != len(value)-1:
             str1 += value[0]
             
         if str2 == '' or str2 == "":

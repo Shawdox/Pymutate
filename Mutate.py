@@ -11,11 +11,8 @@ import imp
 import subprocess
 import time
 import timeout_decorator
-import eventlet
 import colorit
-import sys, traceback
-
-DATASET = "/home/WORK/PAPER4/LLMreasoning/cruxeval/data/cruxeval.jsonl"
+from itertools import permutations
 
 def INFO_PRINT(prefix = 'INFO:', info = ''):
     prefix = colorit.color("[*] " + prefix, colorit.Colors.green)
@@ -98,7 +95,13 @@ def mutate_dataset_once(mutator, dataset):
         output = dataset[idx]["output"]
         id = dataset[idx]["id"]
         #CODE_PRINT(dataset[idx])
-        new_code = mutate(code, mutator)
+        try:
+            new_code = mutate(code, mutator)
+        except Exception as ex:
+            ERR_PRINT('Error when mutating:',str(mutator))
+            CODE_PRINT(dataset[idx])
+            ERR_PRINT('Exception:\n',ex)
+            exit(1)
         new_data = {'code': new_code, 
                     'input': input, 
                     'output': output, 
@@ -108,8 +111,15 @@ def mutate_dataset_once(mutator, dataset):
             #CODE_PRINT(new_data)
             new_dataset.append(new_data)
             new_id += 1
-    INFO_PRINT(f"Mutate dataset with mutator {mutator.__name__}:", new_id+1)
-    save_data(new_dataset, f'./new_data/{mutator.__name__}.jsonl')
+    INFO_PRINT(f"Mutated dataset with mutator {mutator.__name__}:", new_id+1)
+    return new_dataset
+
+def multi_mutate(mutators, dataset_path):
+    dataset = load_dataset(dataset_path)
+    for mutator in mutators:
+        dataset = mutate_dataset_once(mutator, dataset)
+    return dataset
+    
 
 def exclude_dataset(dataset_path, error_code_idx):
     dataset = load_dataset(dataset_path)
@@ -118,7 +128,6 @@ def exclude_dataset(dataset_path, error_code_idx):
         if idx in error_code_idx:
             continue
         new_dataset.append(line)
-    
     save_data(new_dataset, dataset_path)
 
 def evaluate_dataset(dataset_path):
@@ -134,27 +143,40 @@ def evaluate_dataset(dataset_path):
             error_code_idx.append(idx)
     print(f"{len(error_code_idx)} problematic code generated: {error_code_idx}")
     return error_code_idx
-        
+
+
+    
 # Load the dataset
 SKIP_LIST = [289, 258, 375, 382, 452, 490, 711]
 #MUTATORS = [For2While, AugAssign2Assign, Deadcode_Assign2Ternary, 
 #            Deadcode_Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding,]
-MUTATORS = [StringUnfoldding]
+DATASET = "/home/WORK/PAPER4/LLMreasoning/cruxeval/data/cruxeval.jsonl"
+MUTATORS = [For2While, StringUnfoldding, ConstantUnfoldding, IfAddShortCircuiting, IfReverse ]
+visit = []
+perms = list(permutations(MUTATORS, len(MUTATORS)))
 #dataset = []
 #with open(DATASET, 'r') as f:
 #    for line in f:
 #        dataset.append(json.loads(line))
 #INFO_PRINT("Dataset loaded:", f"{len(dataset)} entries.")
-dataset = load_dataset(DATASET)
+#dataset = load_dataset(DATASET)
 
+for idx, mutator_tuple in enumerate(perms):
+    tmp_str = ' -> '.join(map(lambda x:x.__name__, mutator_tuple))
+    INFO_PRINT(f'[{idx+1}/{len(perms)}]',f'Mutate with: {tmp_str}')
+    new_dataset = multi_mutate(mutator_tuple, DATASET)
+    new_name = "_".join(map(lambda x:x.__name__, mutator_tuple))
+    save_data(new_dataset, f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{new_name}.jsonl")
+    break
 # mutate
 #for mutator in MUTATORS:
-#    mutate_dataset_once(mutator, dataset)
+#    new_dataset = mutate_dataset_once(mutator, dataset)
+#    save_data(new_dataset, f'./new_data/{mutator.__name__}.jsonl')
 
 # Evaluate the code by running it
-exclude_dataset("/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/StringUnfoldding.jsonl", 
-                [57, 60, 118, 158, 166, 205, 231, 255, 270, 283, 284, 300, 317])
-evaluate_dataset("/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/StringUnfoldding.jsonl")
+evaluate_dataset(f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{new_name}.jsonl")
+exclude_dataset(f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{new_name}.jsonl", 
+                [2, 13])
 
 
     
