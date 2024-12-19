@@ -145,46 +145,41 @@ def evaluate_dataset(dataset_path):
     print(f"{len(error_code_idx)} problematic code generated: {error_code_idx}")
     return error_code_idx
 
+def MultiMutate():
+    multi_path = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated"
+    for a in ASSIGN:
+        for b in LOOP:
+            for c in JUMP:
+                MUTATORS = [a, b, c]
+                INFO_PRINT('Choose mutators:',' '.join(map(lambda x:x.__name__, MUTATORS)))
+                perms = list(permutations(MUTATORS, len(MUTATORS)))
+                max_num = 0
+                max_str = ""
+                for idx, mutator_tuple in enumerate(perms):
+                    tmp_str = ' -> '.join(map(lambda x:x.__name__, mutator_tuple))
+                    INFO_PRINT(f'[{idx+1}/{len(perms)}]',f'Mutate with: {tmp_str}')
+                    new_dataset = multi_mutate(mutator_tuple, DATASET)
+                    new_name = "_".join(map(lambda x:x.__name__, mutator_tuple))
+                    
+                    max_num = len(new_dataset) if len(new_dataset) >= max_num else max_num
+                    max_str = new_name if len(new_dataset) >= max_num else max_str
 
-    
-# Load the dataset
-SKIP_LIST = [289, 258, 375, 382, 452, 490, 711]
-#MUTATORS = [For2While, AugAssign2Assign, Deadcode_Assign2Ternary, 
-#            Deadcode_Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding,]
-DATASET = "/home/WORK/PAPER4/LLMreasoning/cruxeval/data/cruxeval.jsonl"
-#MUTATORS = [For2While, ConstantUnfoldding, IfReverse ]
-MUTATORS = [Assign2Ternary,]
-visit = []
-perms = list(permutations(MUTATORS, len(MUTATORS)))
-#dataset = []
-#with open(DATASET, 'r') as f:
-#    for line in f:
-#        dataset.append(json.loads(line))
-#INFO_PRINT("Dataset loaded:", f"{len(dataset)} entries.")
-#dataset = load_dataset(DATASET)
-max_num = 0
-max_str = ""
-for idx, mutator_tuple in enumerate(perms):
-    tmp_str = ' -> '.join(map(lambda x:x.__name__, mutator_tuple))
-    INFO_PRINT(f'[{idx+1}/{len(perms)}]',f'Mutate with: {tmp_str}')
-    new_dataset = multi_mutate(mutator_tuple, DATASET)
-    new_name = "_".join(map(lambda x:x.__name__, mutator_tuple))
-    
-    max_num = len(new_dataset) if len(new_dataset) >= max_num else max_num
-    max_str = new_name if len(new_dataset) >= max_num else max_str
+                INFO_PRINT(info=f'max_num = {max_num}, {max_str}')
+                save_data(new_dataset, f"{multi_path}/{max_str}.jsonl")
+                err_idx = evaluate_dataset(f"{multi_path}/{max_str}.jsonl")
+                flag = input('Exclude them? [0/1]')
+                if flag == '1':
+                    exclude_dataset(f"{multi_path}/{new_name}.jsonl", err_idx)
+                
+if __name__ == "__main__":
+    # Load the dataset
+    DATASET = "/home/WORK/PAPER4/LLMreasoning/cruxeval/data/cruxeval.jsonl"
 
-INFO_PRINT(info=f'max_num = {max_num}, {max_str}')
-save_data(new_dataset, f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{max_str}.jsonl")
-    
-# mutate
-#for mutator in MUTATORS:
-#    new_dataset = mutate_dataset_once(mutator, dataset)
-#    save_data(new_dataset, f'./new_data/{mutator.__name__}.jsonl')
+    ASSIGN = [AugAssign2Assign, Assign2Ternary, Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding, StringUnfoldding]
+    LOOP = [For2While]
+    JUMP = [IfReverse, IfAddShortCircuiting]
 
-# Evaluate the code by running it
-evaluate_dataset(f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{max_str}.jsonl")
-exclude_dataset(f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{new_name}.jsonl", 
-                [177, 204, 265, 313])
+    MultiMutate()
 
 
     
