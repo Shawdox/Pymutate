@@ -42,7 +42,7 @@ def load_dataset(path):
     with open(path, 'r') as f:
         for line in f.readlines():
             dataset.append(json.loads(line))
-    INFO_PRINT("Dataset loaded:", f"{len(dataset)} entries.")
+    #INFO_PRINT("Dataset loaded:", f"{len(dataset)} entries.")
     return dataset
 
 @timeout_decorator.timeout(3)
@@ -152,7 +152,8 @@ SKIP_LIST = [289, 258, 375, 382, 452, 490, 711]
 #MUTATORS = [For2While, AugAssign2Assign, Deadcode_Assign2Ternary, 
 #            Deadcode_Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding,]
 DATASET = "/home/WORK/PAPER4/LLMreasoning/cruxeval/data/cruxeval.jsonl"
-MUTATORS = [For2While, StringUnfoldding, ConstantUnfoldding, IfAddShortCircuiting, IfReverse ]
+#MUTATORS = [For2While, ConstantUnfoldding, IfReverse ]
+MUTATORS = [Assign2Ternary,]
 visit = []
 perms = list(permutations(MUTATORS, len(MUTATORS)))
 #dataset = []
@@ -161,23 +162,29 @@ perms = list(permutations(MUTATORS, len(MUTATORS)))
 #        dataset.append(json.loads(line))
 #INFO_PRINT("Dataset loaded:", f"{len(dataset)} entries.")
 #dataset = load_dataset(DATASET)
-
+max_num = 0
+max_str = ""
 for idx, mutator_tuple in enumerate(perms):
     tmp_str = ' -> '.join(map(lambda x:x.__name__, mutator_tuple))
     INFO_PRINT(f'[{idx+1}/{len(perms)}]',f'Mutate with: {tmp_str}')
     new_dataset = multi_mutate(mutator_tuple, DATASET)
     new_name = "_".join(map(lambda x:x.__name__, mutator_tuple))
-    save_data(new_dataset, f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{new_name}.jsonl")
-    break
+    
+    max_num = len(new_dataset) if len(new_dataset) >= max_num else max_num
+    max_str = new_name if len(new_dataset) >= max_num else max_str
+
+INFO_PRINT(info=f'max_num = {max_num}, {max_str}')
+save_data(new_dataset, f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{max_str}.jsonl")
+    
 # mutate
 #for mutator in MUTATORS:
 #    new_dataset = mutate_dataset_once(mutator, dataset)
 #    save_data(new_dataset, f'./new_data/{mutator.__name__}.jsonl')
 
 # Evaluate the code by running it
-evaluate_dataset(f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{new_name}.jsonl")
+evaluate_dataset(f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{max_str}.jsonl")
 exclude_dataset(f"/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/new_data/MultiMutated/{new_name}.jsonl", 
-                [2, 13])
+                [177, 204, 265, 313])
 
 
     

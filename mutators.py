@@ -131,13 +131,14 @@ class Assign2Ternary(cst.CSTTransformer):
                     left = cst.Integer(value = str(rnd2)),
                     comparisons = [
                         cst.ComparisonTarget(
-                            operator = cst.GreaterThan(),
+                            #operator = cst.GreaterThan(),
+                            operator = cst.LessThan(),
                             comparator = cst.Integer(value = str(rnd1)),
                         )
                     ]
                 ),
-                body = Assign_value,
-                orelse = cst.Integer(value = '0'),
+                body = cst.Integer(value = '0'),
+                orelse = Assign_value,
             )
             return cst.FlattenSentinel([cst.Assign(
                 targets = Assign_targets,
