@@ -134,6 +134,17 @@ if a and ((10 > 5) or (3 < 1))
 
 ### Multi-mutate
 
+| Assign             | Loop      | Jump                 |
+| ------------------ | --------- | -------------------- |
+| AugAssign2Assign   | For2While | IfReverse            |
+| Assign2Ternary     |           | IfAddShortCircuiting |
+| Add_IndependentVar |           |                      |
+| AssignUnfoldding   |           |                      |
+| ConstantUnfoldding |           |                      |
+| StringUnfoldding   |           |                      |
+
+
+
 ### Python scripts
 
 - `mutators.py`:  Mutator definitions.
