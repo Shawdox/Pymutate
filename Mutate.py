@@ -89,12 +89,14 @@ def evaluate_code(mutated_code: str, input: str, output: str):
 def mutate_dataset_once(mutator, dataset):
     new_dataset = []
     new_id = 0
-    original_dataset = load_dataset(DATASET)
     for idx in range(0, len(dataset)):
         code = dataset[idx]["code"]
         input = dataset[idx]["input"]
         output = dataset[idx]["output"]
-        original_id = original_dataset[idx]["id"]
+        if "old_id" in dataset[idx].keys():
+            original_id = dataset[idx]["old_id"]
+        else:
+            original_id = idx
         #CODE_PRINT(dataset[idx])
         try:
             new_code = mutate(code, mutator)
@@ -167,7 +169,8 @@ def MultiMutate():
                 INFO_PRINT(info=f'max_num = {max_num}, {max_str}')
                 save_data(new_dataset, f"{multi_path}/{max_str}.jsonl")
                 err_idx = evaluate_dataset(f"{multi_path}/{max_str}.jsonl")
-                flag = input('Exclude them? [0/1]')
+                #flag = input('Exclude them? [0/1]')
+                flag = '1'
                 if flag == '1':
                     exclude_dataset(f"{multi_path}/{new_name}.jsonl", err_idx)
                 
