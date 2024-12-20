@@ -12,6 +12,7 @@ import subprocess
 import time
 import timeout_decorator
 import colorit
+import re
 from itertools import permutations
 
 def INFO_PRINT(prefix = 'INFO:', info = ''):
@@ -131,6 +132,10 @@ def exclude_dataset(dataset_path, error_code_idx):
         if idx in error_code_idx:
             continue
         new_dataset.append(line)
+    # Reindexing
+    for idx,line in enumerate(new_dataset):
+        new_line = re.sub(r'\d+$', str(idx), line['id'])
+        line['id'] = new_line
     save_data(new_dataset, dataset_path)
 
 def evaluate_dataset(dataset_path):
