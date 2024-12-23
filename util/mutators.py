@@ -115,8 +115,10 @@ class AugAssign2Assign(cst.CSTTransformer):
             new_operator = cst.BitAnd()
         elif isinstance(operator, cst.BitOrAssign):
             new_operator = cst.BitOr()
-        
-        
+        elif isinstance(operator, cst.LeftShiftAssign):
+            new_operator = cst.LeftShift()
+        elif isinstance(operator, cst.RightShiftAssign):
+            new_operator = cst.RightShift()
         assign = cst.Assign(
             targets = [cst.AssignTarget(target)],
             value = cst.BinaryOperation(
@@ -259,6 +261,8 @@ class ConstantUnfoldding(cst.CSTTransformer):
         return original_node
     '''
     def leave_Integer(self, original_node: cst.Integer, updated_node: cst.Integer):
+        if original_node.value[:2] == '0x' or original_node.value[:2] == '0X':
+            return original_node
         num = int(original_node.value)
         randnum = random.randint(1, 100)
         num = num - randnum
