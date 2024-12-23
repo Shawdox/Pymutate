@@ -24,10 +24,10 @@ https://huggingface.co/datasets/ziwenyd/transcoder-geeksforgeeks
 
 ### Util
 
-- `helper.py`:
-- `mutate.py`:
-- `mutators.py`: Mutators for modifying the python code.
-- `timeout.py`:
+- `helper.py`: Auxiliary functions for generation and execution.
+- `mutate.py`: Auxiliary functions for variable mutation.
+- `mutators.py`: Mutators for modifying the Python code.
+- `timeout.py`: Functions for timeout control.
 
 
 
