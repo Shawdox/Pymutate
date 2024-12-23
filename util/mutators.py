@@ -104,7 +104,19 @@ class AugAssign2Assign(cst.CSTTransformer):
         elif isinstance(operator, cst.MultiplyAssign):
             new_operator = cst.Multiply()
         elif isinstance(operator, cst.DivideAssign):
-            new_operator = cst.Divide()         
+            new_operator = cst.Divide()      
+        elif isinstance(operator, cst.ModuloAssign):
+            new_operator = cst.Modulo()   
+        elif isinstance(operator, cst.BitXorAssign):
+            new_operator = cst.BitXor()
+        elif isinstance(operator, cst.FloorDivideAssign):
+            new_operator = cst.FloorDivide()
+        elif isinstance(operator, cst.BitAndAssign):
+            new_operator = cst.BitAnd()
+        elif isinstance(operator, cst.BitOrAssign):
+            new_operator = cst.BitOr()
+        
+        
         assign = cst.Assign(
             targets = [cst.AssignTarget(target)],
             value = cst.BinaryOperation(
