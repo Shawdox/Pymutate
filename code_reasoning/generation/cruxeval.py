@@ -69,7 +69,7 @@ def main():
         error_message = traceback.format_exc()
         with open(output_file, 'a') as file:
             file.write(error_message)
-        error_output_file = "./result/[ERROR]" + output_file.split("/")[2]
+        error_output_file = "code_reasoning/result/[ERROR]" + output_file.split("/")[2]
         os.rename(output_file, error_output_file)
 
 

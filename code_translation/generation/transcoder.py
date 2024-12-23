@@ -10,8 +10,8 @@ current_working_directory = os.getcwd()
 if current_working_directory not in sys.path:
     sys.path.insert(0, current_working_directory)
 
-from util.helper import get_output_file_path, create_client, generate_content,\
-                        load_mutate_codes
+from util.helper import get_output_file_path_for_translation, create_client, generate_content,\
+                        load_mutate_codes_for_translation
 
 def main():
     parser = argparse.ArgumentParser(description="A simple argument parser.")
@@ -34,7 +34,7 @@ def main():
     target_lang = args.tarlang
     prompt = "You are a code translation expert. Translate the {0} code below to {2}\n\n{0}\n{1}\n\n{2}\n"
 
-    output_file = get_output_file_path(model_name, mutate_method, temperature, current_time)
+    output_file = get_output_file_path_for_translation("transcoder", model_name, mutate_method, temperature, current_time)
 
     ds = {}
 
@@ -46,7 +46,7 @@ def main():
             python_code = json_object['python']    
             ds[id_value] = python_code
 
-    mutate_codes = load_mutate_codes(f"mutation_jsonl/{mutate_method}.jsonl")
+    mutate_codes = load_mutate_codes_for_translation(f"mutation_jsonl/{mutate_method}.jsonl")
 
 
     try:

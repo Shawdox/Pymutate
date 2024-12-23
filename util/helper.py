@@ -34,6 +34,16 @@ def load_mutate_codes(mutation_filename):
                 mutate_codes[old_id] = data['code']
     return mutate_codes
 
+def load_mutate_codes_for_translation(mutation_filename):
+    mutate_codes = {}
+    with open(mutation_filename, 'r', encoding='utf-8') as f:
+        for line in f:
+            data = json.loads(line.strip())
+            if 'code' in data and 'old_id' in data:
+                old_id = data['old_id']
+                mutate_codes[old_id] = data['code']
+    return mutate_codes
+
 
 def get_output_file_path(model_name, mutate_method, temperature, current_time):
     if "#" in model_name:
@@ -41,7 +51,15 @@ def get_output_file_path(model_name, mutate_method, temperature, current_time):
     else:
         simplified_model_name = model_name.split('/')[-1]
 
-    return f"./result/{simplified_model_name}_{mutate_method}_t{temperature}_{current_time}.jsonl"
+    return f"code_reasoning/result/{simplified_model_name}_{mutate_method}_t{temperature}_{current_time}.jsonl"
+
+def get_output_file_path_for_translation(dataset_name, model_name, mutate_method, temperature, current_time):
+    if "#" in model_name:
+        simplified_model_name = model_name.split('/')[3].split('#')[0]
+    else:
+        simplified_model_name = model_name.split('/')[-1]
+
+    return f"code_translation/result/{dataset_name}_{simplified_model_name}_{mutate_method}_t{temperature}_{current_time}.jsonl"
     
 
 

@@ -8,7 +8,7 @@ current_working_directory = os.getcwd()
 if current_working_directory not in sys.path:
     sys.path.insert(0, current_working_directory)
 
-from util.helper import get_output_file_path, load_dataset_with_retry
+from util.helper import get_output_file_path_for_translation, load_dataset_with_retry
 
 
 parser = argparse.ArgumentParser(description="A simple argument parser.")
@@ -34,7 +34,7 @@ target_lang = args.tarlang
 
 
 
-file_path = get_output_file_path(model_name, mutate_method, temperature, current_time)
+file_path = get_output_file_path_for_translation(dataset_name, model_name, mutate_method, temperature, current_time)
 if dataset_name == "codenet":
     ds = load_dataset_with_retry("iidai/codenet")
 elif dataset_name == "avatar":

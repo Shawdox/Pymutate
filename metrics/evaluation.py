@@ -57,7 +57,7 @@ with open(file_path, "r", encoding="utf-8") as file:
             samples.append(record)
         except:
             pass
-        
+     
 
 for item in samples:
     # 将各个变量解包
@@ -80,11 +80,11 @@ for id, count in original_success_counts.items():
 for id, count in modified_success_counts.items():
     modified_success_passat[id] = pass_at_k(nsample, count, passatk)
 
-print(original_success_passat, modified_success_passat)
-
-
 original_pass_at_k = sum(original_success_passat.values()) / (len(samples) / 2 / nsample) * 100
 modified_pass_at_k = sum(modified_success_passat.values()) / (len(samples) / 2 / nsample) * 100
+
+print(f"Original Pass@k: {original_pass_at_k}\n")
+print(f"Modified Pass@k: {modified_pass_at_k}\n")
 
 with open(file_path, 'a') as file:
     file.write(f"Original Pass@k: {original_pass_at_k}\n")

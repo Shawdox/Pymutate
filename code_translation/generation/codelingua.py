@@ -9,8 +9,8 @@ current_working_directory = os.getcwd()
 if current_working_directory not in sys.path:
     sys.path.insert(0, current_working_directory)
 
-from util.helper import generate_content, get_output_file_path, \
-    load_dataset_with_retry, load_mutate_codes, create_client
+from util.helper import generate_content, get_output_file_path_for_translation, \
+    load_dataset_with_retry, load_mutate_codes_for_translation, create_client
 
 def main():
     parser = argparse.ArgumentParser(description="A simple argument parser.")
@@ -35,7 +35,7 @@ def main():
     target_lang = args.tarlang
     prompt = "You are a code translation expert. Translate the {0} code below to {2}\n\n{0}\n{1}\n\n{2}\n"
 
-    output_file = get_output_file_path(model_name, mutate_method, temperature, current_time)
+    output_file = get_output_file_path_for_translation(dataset_name, model_name, mutate_method, temperature, current_time)
 
     if dataset_name == "codenet":
         ds = load_dataset_with_retry("iidai/codenet")
@@ -45,7 +45,10 @@ def main():
         print("Check dataset name.")
         sys.exit(1)
 
-    mutate_codes = load_mutate_codes(f"mutation_jsonl/{mutate_method}.jsonl")
+    try:
+        mutate_codes = load_mutate_codes_for_translation(f"code_translation/mutated_datasets/SingleMutated/CodeLingua/{dataset_name}_{mutate_method}.jsonl")
+    except:
+        mutate_codes = load_mutate_codes_for_translation(f"code_translation/mutated_datasets/MultiMutated/CodeLingua/{dataset_name}_{mutate_method}.jsonl")
 
     ds = ds['train'].filter(lambda x: x['language'] == 'Python')
 
@@ -78,7 +81,7 @@ def main():
         error_message = traceback.format_exc()
         with open(output_file, 'a') as file:
             file.write(error_message)
-        error_output_file = "./result/[ERROR]" + output_file.split("/")[2]
+        error_output_file = "code_translation/result/[ERROR]" + output_file.split("/")[2]
         os.rename(output_file, error_output_file)
 
 
