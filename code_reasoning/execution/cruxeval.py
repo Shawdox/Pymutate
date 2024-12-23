@@ -3,10 +3,9 @@ import argparse
 import os
 import sys
 
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
-
+current_working_directory = os.getcwd()
+if current_working_directory not in sys.path:
+    sys.path.insert(0, current_working_directory)
 
 from util import timeout
 from util.helper import get_output_file_path
