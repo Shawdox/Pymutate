@@ -1,4 +1,3 @@
 *.txt
+tmp.py
 .DS_Store
-/result/*
-/tmp/*
