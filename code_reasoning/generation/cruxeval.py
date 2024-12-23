@@ -5,9 +5,9 @@ import sys
 import traceback
 from tqdm import tqdm
 
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
+current_working_directory = os.getcwd()
+if current_working_directory not in sys.path:
+    sys.path.insert(0, current_working_directory)
 
 from util.helper import generate_content, get_output_file_path, \
     load_dataset_with_retry, load_mutate_codes, create_client
@@ -33,7 +33,10 @@ def main():
     output_file = get_output_file_path(model_name, mutate_method, temperature, current_time)
 
     ds = load_dataset_with_retry("cruxeval-org/cruxeval")
-    mutate_codes = load_mutate_codes(f"mutation_jsonl/{mutate_method}.jsonl")
+    if mutate_method.count('_') < 2:
+        mutate_codes = load_mutate_codes(f"code_reasoning/new_data/SingleMutated/{mutate_method}.jsonl")
+    else:
+        mutate_codes = load_mutate_codes(f"code_reasoning/new_data/MultiMutated/{mutate_method}.jsonl")
 
     try:
         with open(output_file, 'w') as file:
