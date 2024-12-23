@@ -1,7 +1,7 @@
 *.txt
 tmp.py
 /code_translation/datasets/CodeLingua/
-code_translation/Datasets/CodeLingua/
+code_translation/Datasets/CodeLingua/avatar/avatar.json
 __pycache__/
 .pytest_cache/
 .DS_Store
