@@ -22,6 +22,10 @@
 - `test`: hidden test samples, used for evaluation.
 - `example_test`: public test samples (appeared in prompt), used for evaluation.
 
+| Translation   | Dataset            | Num  |
+| ------------- | ------------------ | ---- |
+| Python -> xxx | HumanEval-x/python | 163  |
+
 Code translation: `code` = `declaration` + `canonical_solution`
 
 
