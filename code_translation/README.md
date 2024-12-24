@@ -9,6 +9,9 @@
 | Python -> Go   | CodeNet(200), Avatar(250)                           | 450  |
 | Python -> Java | CodeNet(200), Avatar(250), EvalPlus(164), Click(15) | 629  |
 
+- `code` = `code`
+- `id` = `id`
+
 
 
 ## Humaneval-x
@@ -26,7 +29,10 @@
 | ------------- | ------------------ | ---- |
 | Python -> xxx | HumanEval-x/python | 163  |
 
-Code translation: `code` = `declaration` + `canonical_solution`
+Code translation: 
+
+- `code` = `declaration` + `canonical_solution`
+- `id` = `task_id`
 
 
 
@@ -40,3 +46,5 @@ Code translation: `code` = `declaration` + `canonical_solution`
 | -------------- | ------------------ | ---- |
 | Python -> Java | Cleaned transcoder | 568  |
 
+- `code` = `python`
+- `id` = `id`
