@@ -181,7 +181,8 @@ if __name__ == "__main__":
     SKIP_LIST = ['codeforces_379_A', 'atcoder_ABC150_D']
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/CodeLingua/avatar/avatar.jsonl"
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/CodeLingua/codenet/codenet_python.jsonl"
-    DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/TransCoder/cleaned_testable_samples_python.jsonl"
+    #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/TransCoder/cleaned_testable_samples_python.jsonl"
+    DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/Humaneval-x/humanevalx-python.jsonl"
     ASSIGN = [AugAssign2Assign, Assign2Ternary, Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding, StringUnfoldding]
     LOOP = [For2While]
     JUMP = [IfReverse, IfAddShortCircuiting]
@@ -189,7 +190,7 @@ if __name__ == "__main__":
     MUTATORS = ASSIGN + LOOP + JUMP
     
     dataset = load_dataset(DATASET)
-    target_dir = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/mutated_datasets/SingleMutated/TransCoder"
+    target_dir = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/mutated_datasets/SingleMutated/Humaneval-x"
     for mutator in MUTATORS:
         new_dataset = mutate_dataset_once(mutator, dataset)
         save_data(new_dataset, target_dir+f"/{mutator.__name__}.jsonl")

@@ -8,3 +8,4 @@ __pycache__/
 /tmp/
 **/result/
 mail.py
+/code_translation/Datasets/Humaneval-x/humaneval-x/
