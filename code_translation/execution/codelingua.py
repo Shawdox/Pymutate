@@ -3,12 +3,26 @@ import argparse
 import os
 import sys
 import subprocess
+from contextlib import contextmanager
+from tqdm import tqdm
 
 current_working_directory = os.getcwd()
 if current_working_directory not in sys.path:
     sys.path.insert(0, current_working_directory)
 
 from util.helper import get_output_file_path_for_translation, load_dataset_with_retry
+
+from datasets import disable_progress_bar
+disable_progress_bar()
+
+@contextmanager
+def change_dir(new_dir):
+    prev_dir = os.getcwd()
+    os.chdir(new_dir)
+    try:
+        yield
+    finally:
+        os.chdir(prev_dir)
 
 
 parser = argparse.ArgumentParser(description="A simple argument parser.")
@@ -43,6 +57,9 @@ else:
     print("Check dataset name.")
     sys.exit(1)
 
+ds = ds['train'].filter(lambda x: x['language'] == 'Python')
+
+
 # 用于存储每行内容的列表
 samples = []
 
@@ -53,7 +70,7 @@ with open(file_path, "r", encoding="utf-8") as file:
         record = json.loads(line.strip())
         samples.append(record)
 
-for item in samples:
+for item in tqdm(samples):
     # 将各个变量解包
     old_id = item.get("id")
     code_type = item.get("code_type")
@@ -69,25 +86,27 @@ for item in samples:
 
     # 提取生成的 Java 代码
     target_lang = target_lang.lower()
-    generated_content = generated_content[generated_content.find(f"```{target_lang}") + len(f"```{target_lang}"):]
+    generated_content = raw_generated_content[raw_generated_content.find(f"```{target_lang}") + len(f"```{target_lang}"):]
     exec_code = generated_content[:generated_content.find("```")]
-
-    # 保存生成的 Java 代码到 Main.java 文件
-    java_file_path = './tmp/Main.java'
-    with open(java_file_path, 'w') as f:
-        f.write(exec_code)
 
     # 编译并执行 Java 代码
     try:
-        # 编译 Java 代码
-        compile_process = subprocess.run(['javac', java_file_path], check=True, capture_output=True, text=True, timeout=10)
-        
-        p = subprocess.Popen(f"java Main", cwd=f"./tmp", stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        with change_dir('tmp'):
+            # 保存生成的 Java 代码到 Main.java 文件
+            java_file_path = './Main.java'
+            with open(java_file_path, 'w') as f:
+                f.write(exec_code)
+    
+            # 编译 Java 代码
+            compile_process = subprocess.run(['javac', java_file_path],\
+                                 check=True, capture_output=True, text=True, timeout=10)
+            p = subprocess.Popen(f"java Main", \
+                    cwd=f"./", stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-        try:
-            stdout, stderr_data = p.communicate(input=f_in.encode(), timeout=20)
-        except subprocess.TimeoutExpired:
-            pass
+            try:
+                stdout, stderr_data = p.communicate(input=f_in.encode(), timeout=20)
+            except subprocess.TimeoutExpired:
+                pass
 
         try:
             if float(stdout.decode())%1 == 0:

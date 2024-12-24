@@ -12,6 +12,9 @@ if current_working_directory not in sys.path:
 from util.helper import generate_content, get_output_file_path_for_translation, \
     load_dataset_with_retry, load_mutate_codes_for_translation, create_client
 
+from datasets import disable_progress_bar
+disable_progress_bar()
+
 def main():
     parser = argparse.ArgumentParser(description="A simple argument parser.")
     parser.add_argument("--dataset", type=str, help="Dataset")
