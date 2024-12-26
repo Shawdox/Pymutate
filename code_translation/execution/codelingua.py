@@ -17,6 +17,9 @@ disable_progress_bar()
 
 @contextmanager
 def change_dir(new_dir):
+    if not os.path.exists(new_dir):
+        os.makedirs(new_dir)
+    
     prev_dir = os.getcwd()
     os.chdir(new_dir)
     try:
@@ -67,8 +70,11 @@ samples = []
 with open(file_path, "r", encoding="utf-8") as file:
     for line in file:
         # 解析 JSON 数据
-        record = json.loads(line.strip())
-        samples.append(record)
+        try:
+            record = json.loads(line.strip())
+            samples.append(record)
+        except:
+            pass
 
 for item in tqdm(samples):
     # 将各个变量解包
@@ -86,12 +92,15 @@ for item in tqdm(samples):
 
     # 提取生成的 Java 代码
     target_lang = target_lang.lower()
-    generated_content = raw_generated_content[raw_generated_content.find(f"```{target_lang}") + len(f"```{target_lang}"):]
-    exec_code = generated_content[:generated_content.find("```")]
+    if raw_generated_content.find(f"```{target_lang}") != -1:
+        generated_content = raw_generated_content[raw_generated_content.find(f"```{target_lang}") + len(f"```{target_lang}"):]
+        exec_code = generated_content[:generated_content.find("```")]
+    else:
+        exec_code = generated_content
 
     # 编译并执行 Java 代码
     try:
-        with change_dir('tmp'):
+        with change_dir('tmp_' + model_name.split("/")[-1]):
             # 保存生成的 Java 代码到 Main.java 文件
             java_file_path = './Main.java'
             with open(java_file_path, 'w') as f:
@@ -135,8 +144,9 @@ for item in tqdm(samples):
     except subprocess.TimeoutExpired as e:
         print(f"Error: The process timed out. {e}")
     except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")
-        print("Compilation or runtime error occurred.")
+        # print(f"Error: {e}")
+        # print("Compilation or runtime error occurred.")
+        pass
 
     item["generated_content"] = exec_code
     item["execution_success"] = success_flag

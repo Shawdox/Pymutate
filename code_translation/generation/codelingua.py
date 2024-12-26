@@ -36,7 +36,7 @@ def main():
     current_time = args.curtime
     source_lang = args.sourlang
     target_lang = args.tarlang
-    prompt = "You are a code translation expert. Translate the {0} code below to {2}\n\n{0}\n{1}\n\n{2}\n"
+    prompt = "You are a code translation expert. Translate the {0} code below to {2}. Do NOT output any extra information.\n\n{0}\n{1}\n\n{2}\n"
 
     output_file = get_output_file_path_for_translation(dataset_name, model_name, mutate_method, temperature, current_time)
 
