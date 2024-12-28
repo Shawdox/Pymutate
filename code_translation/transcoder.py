@@ -14,13 +14,14 @@ def main(model):
     TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     # Mutations
-    mutations = ["ConstantUnfoldding", "StringUnfoldding", "IfAddShortCircuiting", "For2While"]
+    # mutations = ["ConstantUnfoldding", "StringUnfoldding", "IfAddShortCircuiting", "For2While"]
+    mutations = ["For2While"]
 
     # Commands template
     command_templates = [
         "/opt/homebrew/bin/python3.11 code_translation/generation/transcoder.py --model {model} --temp {temp} --curtime {curtime} --mutate {mutate}",
         "/opt/homebrew/bin/python3.11 code_translation/execution/transcoder.py  --model {model} --temp {temp} --curtime {curtime} --mutate {mutate}",
-        "/opt/homebrew/bin/python3.11 code_translation/metrics/evaluation.py  --model {model} --temp {temp} --curtime {curtime} --passatk 1 --mutate {mutate}"
+        "/opt/homebrew/bin/python3.11 code_translation/metrics/evaluation.py --dataset transcoder --model {model} --temp {temp} --curtime {curtime} --passatk 1 --mutate {mutate}"
     ]
 
     # Execute commands for each mutation
