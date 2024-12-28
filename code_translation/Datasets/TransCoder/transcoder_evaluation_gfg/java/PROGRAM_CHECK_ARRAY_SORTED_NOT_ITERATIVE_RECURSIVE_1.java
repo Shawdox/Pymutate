@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_CHECK_ARRAY_SORTED_NOT_ITERATIVE_RECURSIVE_1{
 static boolean f_gold ( int arr [ ] , int n ) {
   if ( n == 0 || n == 1 ) return true ;

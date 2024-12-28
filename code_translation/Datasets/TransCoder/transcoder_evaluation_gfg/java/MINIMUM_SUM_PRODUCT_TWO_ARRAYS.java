@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_SUM_PRODUCT_TWO_ARRAYS{
 static int f_gold ( int a [ ] , int b [ ] , int n , int k ) {
   int diff = 0 , res = 0 ;

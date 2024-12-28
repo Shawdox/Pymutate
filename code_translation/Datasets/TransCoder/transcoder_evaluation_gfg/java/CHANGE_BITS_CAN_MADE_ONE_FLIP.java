@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHANGE_BITS_CAN_MADE_ONE_FLIP{
 static boolean f_gold ( String str ) {
   int zeros = 0 , ones = 0 ;

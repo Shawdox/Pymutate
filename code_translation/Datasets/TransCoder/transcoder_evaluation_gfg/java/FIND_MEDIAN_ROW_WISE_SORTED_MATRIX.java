@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_MEDIAN_ROW_WISE_SORTED_MATRIX{
 static int f_gold ( int m [ ] [ ] , int r , int c ) {
   int max = Integer . MIN_VALUE ;

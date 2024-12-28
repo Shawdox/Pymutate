@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class TRIANGULAR_NUMBERS{
 static boolean f_gold ( int num ) {
   if ( num < 0 ) return false ;

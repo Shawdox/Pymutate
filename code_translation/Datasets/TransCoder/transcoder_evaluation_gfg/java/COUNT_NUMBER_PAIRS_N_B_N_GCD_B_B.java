@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_NUMBER_PAIRS_N_B_N_GCD_B_B{
 static int f_gold ( int n ) {
   int k = n ;

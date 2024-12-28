@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class RECURSIVE_PROGRAM_PRIME_NUMBER{
 static boolean f_gold ( int n , int i ) {
   if ( n <= 2 ) return ( n == 2 ) ? true : false ;

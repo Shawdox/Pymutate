@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LONGEST_EVEN_LENGTH_SUBSTRING_SUM_FIRST_SECOND_HALF_1{
 static int f_gold ( String str ) {
   int n = str . length ( ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LARGEST_SUBSEQUENCE_GCD_GREATER_1{
 static int f_gold ( int arr [ ] , int n ) {
   int ans = 0 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_INDEXES_EQUAL_ELEMENTS_GIVEN_RANGE{
 static int f_gold ( int a [ ] , int n , int l , int r ) {
   int count = 0 ;

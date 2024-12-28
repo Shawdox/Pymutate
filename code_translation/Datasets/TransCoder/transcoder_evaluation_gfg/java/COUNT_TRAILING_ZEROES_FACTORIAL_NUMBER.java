@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_TRAILING_ZEROES_FACTORIAL_NUMBER{
 static int f_gold ( int n ) {
   int count = 0 ;

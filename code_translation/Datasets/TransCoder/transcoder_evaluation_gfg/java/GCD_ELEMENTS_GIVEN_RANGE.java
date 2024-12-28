@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class GCD_ELEMENTS_GIVEN_RANGE{
 static int f_gold ( int n , int m ) {
   return ( n == m ) ? n : 1 ;

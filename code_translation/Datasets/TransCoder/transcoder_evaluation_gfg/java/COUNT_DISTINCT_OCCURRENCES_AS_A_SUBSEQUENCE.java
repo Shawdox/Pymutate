@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_DISTINCT_OCCURRENCES_AS_A_SUBSEQUENCE{
 static int f_gold ( String S , String T ) {
   int m = T . length ( ) ;

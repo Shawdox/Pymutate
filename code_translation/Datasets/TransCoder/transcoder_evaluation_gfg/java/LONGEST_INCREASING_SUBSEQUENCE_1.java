@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LONGEST_INCREASING_SUBSEQUENCE_1{
 static int f_gold ( int arr [ ] , int n ) {
   int f_gold [ ] = new int [ n ] ;

@@ -10,7 +10,7 @@ def run_command(command):
 def main(model):
     # Constants
     TEMP = "0.2"
-    DATASET = "codenet"
+    DATASET = "avatar"
 
     # Get current timestamp
     TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")

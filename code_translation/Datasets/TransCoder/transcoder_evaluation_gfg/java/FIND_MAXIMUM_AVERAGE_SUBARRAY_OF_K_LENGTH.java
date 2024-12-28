@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_MAXIMUM_AVERAGE_SUBARRAY_OF_K_LENGTH{
 static int f_gold ( int [ ] arr , int n , int k ) {
   if ( k > n ) return - 1 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_POSSIBLE_DIFFERENCE_TWO_SUBSETS_ARRAY{
 static int f_gold ( int [ ] arr , int n ) {
   int SubsetSum_1 = 0 , SubsetSum_2 = 0 ;

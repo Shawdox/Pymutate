@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_SUBSTRINGS_WITH_SAME_FIRST_AND_LAST_CHARACTERS{
 static int f_gold ( String s ) {
   int result = 0 ;

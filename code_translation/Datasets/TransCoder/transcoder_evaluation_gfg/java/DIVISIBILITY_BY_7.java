@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DIVISIBILITY_BY_7{
 static boolean f_gold ( int num ) {
   if ( num < 0 ) return f_gold ( - num ) ;

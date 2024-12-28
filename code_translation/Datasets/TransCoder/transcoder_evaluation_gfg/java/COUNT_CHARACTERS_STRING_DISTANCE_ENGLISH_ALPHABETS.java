@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_CHARACTERS_STRING_DISTANCE_ENGLISH_ALPHABETS{
 static int f_gold ( String str ) {
   int result = 0 ;

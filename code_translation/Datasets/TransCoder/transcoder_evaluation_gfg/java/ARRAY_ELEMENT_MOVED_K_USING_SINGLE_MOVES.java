@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class ARRAY_ELEMENT_MOVED_K_USING_SINGLE_MOVES{
 static int f_gold ( int a [ ] , int n , int k ) {
   if ( k >= n - 1 ) return n ;

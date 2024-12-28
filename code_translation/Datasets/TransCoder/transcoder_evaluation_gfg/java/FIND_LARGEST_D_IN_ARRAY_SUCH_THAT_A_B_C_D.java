@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_LARGEST_D_IN_ARRAY_SUCH_THAT_A_B_C_D{
 static int f_gold ( int [ ] S , int n ) {
   boolean found = false ;

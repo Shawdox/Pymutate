@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_MAXIMUM_DOT_PRODUCT_TWO_ARRAYS_INSERTION_0S{
 static int f_gold ( int A [ ] , int B [ ] , int m , int n ) {
   int dp [ ] [ ] = new int [ n + 1 ] [ m + 1 ] ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SQUARE_PYRAMIDAL_NUMBER_SUM_SQUARES{
 static int f_gold ( int s ) {
   int sum = 0 ;

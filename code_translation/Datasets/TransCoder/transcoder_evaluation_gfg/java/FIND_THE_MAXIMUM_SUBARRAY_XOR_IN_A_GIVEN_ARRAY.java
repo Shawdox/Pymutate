@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_THE_MAXIMUM_SUBARRAY_XOR_IN_A_GIVEN_ARRAY{
 static int f_gold ( int arr [ ] , int n ) {
   int ans = Integer . MIN_VALUE ;

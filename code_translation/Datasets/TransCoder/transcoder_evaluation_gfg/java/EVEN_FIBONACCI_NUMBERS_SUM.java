@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class EVEN_FIBONACCI_NUMBERS_SUM{
 static int f_gold ( int limit ) {
   if ( limit < 2 ) return 0 ;

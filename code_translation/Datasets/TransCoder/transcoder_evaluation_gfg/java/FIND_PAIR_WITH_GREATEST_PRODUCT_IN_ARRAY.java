@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_PAIR_WITH_GREATEST_PRODUCT_IN_ARRAY{
 static int f_gold ( int [ ] arr , int n ) {
   int result = - 1 ;

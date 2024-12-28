@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_REVERSING_SUB_ARRAY_MAKE_ARRAY_SORTED_1{
 static boolean f_gold ( int arr [ ] , int n ) {
   if ( n == 1 ) {

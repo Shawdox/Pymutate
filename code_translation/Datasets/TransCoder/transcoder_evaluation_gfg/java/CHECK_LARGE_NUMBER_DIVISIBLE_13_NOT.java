@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_LARGE_NUMBER_DIVISIBLE_13_NOT{
 static boolean f_gold ( String num ) {
   int length = num . length ( ) ;

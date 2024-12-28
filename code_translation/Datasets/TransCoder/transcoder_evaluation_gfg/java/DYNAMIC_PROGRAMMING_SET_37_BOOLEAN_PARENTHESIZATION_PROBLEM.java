@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DYNAMIC_PROGRAMMING_SET_37_BOOLEAN_PARENTHESIZATION_PROBLEM{
 static int f_gold ( char symb [ ] , char oper [ ] , int n ) {
   int F [ ] [ ] = new int [ n ] [ n ] ;

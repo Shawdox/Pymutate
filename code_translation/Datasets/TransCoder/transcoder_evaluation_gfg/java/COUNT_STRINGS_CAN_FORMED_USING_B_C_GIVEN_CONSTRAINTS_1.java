@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_STRINGS_CAN_FORMED_USING_B_C_GIVEN_CONSTRAINTS_1{
 static int f_gold ( int n ) {
   return 1 + ( n * 2 ) + ( n * ( ( n * n ) - 1 ) / 2 ) ;

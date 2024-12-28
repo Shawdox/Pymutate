@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class HOW_TO_AVOID_OVERFLOW_IN_MODULAR_MULTIPLICATION{
 static long f_gold ( long a , long b , long mod ) {
   long res = 0 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FRIENDS_PAIRING_PROBLEM_2{
 static int f_gold ( int n ) {
   int a = 1 , b = 2 , c = 0 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_N_TH_ELEMENT_FROM_STERNS_DIATOMIC_SERIES{
 static int f_gold ( int n ) {
   int DP [ ] = new int [ n + 1 ] ;

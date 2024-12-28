@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class REMOVE_BRACKETS_ALGEBRAIC_STRING_CONTAINING_OPERATORS{
 static String f_gold ( String str ) {
   int len = str . length ( ) ;

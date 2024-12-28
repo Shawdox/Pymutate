@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SEQUENCES_GIVEN_LENGTH_EVERY_ELEMENT_EQUAL_TWICE_PREVIOUS_1{
 static int f_gold ( int m , int n ) {
   int T [ ] [ ] = new int [ m + 1 ] [ n + 1 ] ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SWAP_TWO_NIBBLES_BYTE{
 static int f_gold ( int x ) {
   return ( ( x & 0x0F ) << 4 | ( x & 0xF0 ) >> 4 ) ;

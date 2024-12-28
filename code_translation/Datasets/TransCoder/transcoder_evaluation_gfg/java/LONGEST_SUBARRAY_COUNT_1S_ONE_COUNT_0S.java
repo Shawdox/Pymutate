@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LONGEST_SUBARRAY_COUNT_1S_ONE_COUNT_0S{
 static int f_gold ( int arr [ ] , int n ) {
   HashMap < Integer , Integer > um = new HashMap < Integer , Integer > ( ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_WHETHER_GIVEN_NUMBER_EVEN_ODD{
 public static boolean f_gold ( int n ) {
   return ( n % 2 == 0 ) ;

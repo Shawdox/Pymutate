@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class UNIQUE_CELLS_BINARY_MATRIX{
 static int f_gold ( int mat [ ] [ ] , int n , int m ) {
   int [ ] rowsum = new int [ n ] ;

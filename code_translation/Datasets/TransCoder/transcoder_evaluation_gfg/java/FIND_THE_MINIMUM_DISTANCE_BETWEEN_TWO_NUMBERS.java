@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_THE_MINIMUM_DISTANCE_BETWEEN_TWO_NUMBERS{
 static int f_gold ( int arr [ ] , int n , int x , int y ) {
   int i , j ;

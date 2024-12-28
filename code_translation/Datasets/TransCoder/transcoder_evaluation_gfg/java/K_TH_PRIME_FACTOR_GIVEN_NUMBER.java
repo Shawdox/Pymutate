@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class K_TH_PRIME_FACTOR_GIVEN_NUMBER{
 static int f_gold ( int n , int k ) {
   while ( n % 2 == 0 ) {

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 class REARRANGE_ARRAY_MAXIMUM_MINIMUM_FORM_SET_2_O1_EXTRA_SPACE{
 public static void f_gold ( int arr [ ] , int n ) {
   int max_idx = n - 1 , min_idx = 0 ;

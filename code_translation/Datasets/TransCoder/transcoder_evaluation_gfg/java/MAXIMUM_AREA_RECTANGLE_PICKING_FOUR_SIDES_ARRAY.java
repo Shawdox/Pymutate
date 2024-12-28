@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_AREA_RECTANGLE_PICKING_FOUR_SIDES_ARRAY{
 static int f_gold ( Integer arr [ ] , int n ) {
   Arrays . sort ( arr , Collections . reverseOrder ( ) ) ;

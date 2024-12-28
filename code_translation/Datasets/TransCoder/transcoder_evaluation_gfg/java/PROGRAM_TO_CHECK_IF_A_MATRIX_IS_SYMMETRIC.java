@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_TO_CHECK_IF_A_MATRIX_IS_SYMMETRIC{
 static boolean f_gold ( int mat [ ] [ ] , int N ) {
   for ( int i = 0 ;

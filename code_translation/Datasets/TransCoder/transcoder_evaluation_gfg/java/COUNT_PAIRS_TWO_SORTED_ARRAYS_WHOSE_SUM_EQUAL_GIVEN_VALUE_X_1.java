@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_PAIRS_TWO_SORTED_ARRAYS_WHOSE_SUM_EQUAL_GIVEN_VALUE_X_1{
 static int f_gold ( int arr1 [ ] , int arr2 [ ] , int m , int n , int x ) {
   int count = 0 ;

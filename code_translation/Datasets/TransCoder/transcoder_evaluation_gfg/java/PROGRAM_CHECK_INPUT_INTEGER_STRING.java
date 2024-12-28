@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_CHECK_INPUT_INTEGER_STRING{
 static boolean f_gold ( String s ) {
   for ( int i = 0 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_AVERAGE_SUM_PARTITION_ARRAY{
 static double f_gold ( int [ ] A , int K ) {
   int n = A . length ;

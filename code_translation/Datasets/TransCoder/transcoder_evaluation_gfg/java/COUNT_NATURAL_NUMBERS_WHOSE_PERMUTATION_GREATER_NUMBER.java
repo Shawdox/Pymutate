@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_NATURAL_NUMBERS_WHOSE_PERMUTATION_GREATER_NUMBER{
 static int f_gold ( int n ) {
   int result = 0 ;

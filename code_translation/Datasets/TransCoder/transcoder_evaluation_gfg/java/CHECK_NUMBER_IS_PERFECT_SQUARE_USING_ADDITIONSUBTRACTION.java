@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_NUMBER_IS_PERFECT_SQUARE_USING_ADDITIONSUBTRACTION{
 static boolean f_gold ( int n ) {
   for ( int sum = 0 , i = 1 ;

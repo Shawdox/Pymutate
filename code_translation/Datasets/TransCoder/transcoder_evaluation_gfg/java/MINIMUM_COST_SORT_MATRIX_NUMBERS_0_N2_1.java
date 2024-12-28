@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_COST_SORT_MATRIX_NUMBERS_0_N2_1{
 public static int f_gold ( int mat [ ] [ ] , int n ) {
   int i_des , j_des , q ;

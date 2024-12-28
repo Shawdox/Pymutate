@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SEARCH_INSERT_AND_DELETE_IN_A_SORTED_ARRAY_1{
 static int f_gold ( int arr [ ] , int n , int key , int capacity ) {
   if ( n >= capacity ) return n ;

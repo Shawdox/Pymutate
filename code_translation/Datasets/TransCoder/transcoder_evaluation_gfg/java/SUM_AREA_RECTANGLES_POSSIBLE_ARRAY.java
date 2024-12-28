@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SUM_AREA_RECTANGLES_POSSIBLE_ARRAY{
 static int f_gold ( int [ ] a , int n ) {
   a = Arrays.copyOfRange( a , 0 , n );

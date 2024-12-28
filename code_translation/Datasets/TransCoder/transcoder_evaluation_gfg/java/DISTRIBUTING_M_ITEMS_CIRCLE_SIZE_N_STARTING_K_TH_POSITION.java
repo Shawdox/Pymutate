@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DISTRIBUTING_M_ITEMS_CIRCLE_SIZE_N_STARTING_K_TH_POSITION{
 static int f_gold ( int n , int m , int k ) {
   if ( m <= n - k + 1 ) return m + k - 1 ;

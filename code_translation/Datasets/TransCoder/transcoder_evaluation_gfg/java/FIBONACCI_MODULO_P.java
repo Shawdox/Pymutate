@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIBONACCI_MODULO_P{
 static int f_gold ( int p ) {
   int first = 1 , second = 1 , number = 2 , next = 1 ;

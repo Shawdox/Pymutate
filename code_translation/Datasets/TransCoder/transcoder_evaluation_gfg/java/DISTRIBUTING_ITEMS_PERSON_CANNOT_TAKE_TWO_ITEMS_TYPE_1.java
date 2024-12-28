@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DISTRIBUTING_ITEMS_PERSON_CANNOT_TAKE_TWO_ITEMS_TYPE_1{
 static boolean f_gold ( int arr [ ] , int n , int k ) {
   HashMap < Integer , Integer > hash = new HashMap < > ( ) ;

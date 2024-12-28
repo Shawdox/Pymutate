@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SMALLEST_POWER_OF_2_GREATER_THAN_OR_EQUAL_TO_N_1{
 static int f_gold ( int n ) {
   int p = 1 ;

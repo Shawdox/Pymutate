@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_ROTATIONS_REQUIRED_GET_STRING{
 static int f_gold ( String str ) {
   String tmp = str + str ;

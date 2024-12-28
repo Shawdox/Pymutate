@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_SUM_CHOOSING_MINIMUM_PAIRS_ARRAY{
 static int f_gold ( int [ ] A , int n ) {
   int min_val = Arrays . stream ( A ) . min ( ) . getAsInt ( ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CALCULATE_VOLUME_DODECAHEDRON{
 static double f_gold ( int side ) {
   return ( ( ( 15 + ( 7 * ( Math . sqrt ( 5 ) ) ) ) / 4 ) * ( Math . pow ( side , 3 ) ) ) ;

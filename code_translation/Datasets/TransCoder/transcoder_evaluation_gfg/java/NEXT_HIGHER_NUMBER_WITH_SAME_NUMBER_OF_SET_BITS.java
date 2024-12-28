@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NEXT_HIGHER_NUMBER_WITH_SAME_NUMBER_OF_SET_BITS{
 static int f_gold ( int x ) {
   int rightOne , nextHigherOneBit , rightOnesPattern , next = 0 ;

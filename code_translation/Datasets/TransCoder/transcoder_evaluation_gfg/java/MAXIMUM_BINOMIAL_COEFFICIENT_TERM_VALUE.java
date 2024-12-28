@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_BINOMIAL_COEFFICIENT_TERM_VALUE{
 static int f_gold ( int n ) {
   int [ ] [ ] C = new int [ n + 1 ] [ n + 1 ] ;

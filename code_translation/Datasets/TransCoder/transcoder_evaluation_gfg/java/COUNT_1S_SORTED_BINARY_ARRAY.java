@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_1S_SORTED_BINARY_ARRAY{
 static int f_gold ( int arr [ ] , int low , int high ) {
   if ( high >= low ) {

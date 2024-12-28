@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SUBARRAYS_DISTINCT_ELEMENTS{
 public static int f_gold(int[] arr, int n) {
     ArrayList<Integer> s = new ArrayList<>();

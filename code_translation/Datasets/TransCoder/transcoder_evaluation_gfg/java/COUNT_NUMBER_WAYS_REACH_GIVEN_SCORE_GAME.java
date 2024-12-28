@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_NUMBER_WAYS_REACH_GIVEN_SCORE_GAME{
 static int f_gold ( int n ) {
   int table [ ] = new int [ n + 1 ] , i ;

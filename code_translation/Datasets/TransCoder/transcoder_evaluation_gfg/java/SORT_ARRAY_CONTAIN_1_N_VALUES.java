@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 class SORT_ARRAY_CONTAIN_1_N_VALUES{
 static void f_gold ( int [ ] arr , int n ) {
   for ( int i = 0 ;

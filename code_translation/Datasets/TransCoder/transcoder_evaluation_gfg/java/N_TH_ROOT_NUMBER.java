@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class N_TH_ROOT_NUMBER{
 static double f_gold ( int A , int N ) {
   Random generator = new Random(1);

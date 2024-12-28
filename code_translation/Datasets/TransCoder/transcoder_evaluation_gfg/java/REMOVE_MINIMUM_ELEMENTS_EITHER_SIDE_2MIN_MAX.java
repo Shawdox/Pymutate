@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class REMOVE_MINIMUM_ELEMENTS_EITHER_SIDE_2MIN_MAX{
 static int f_gold ( int arr [ ] , int n ) {
   int longest_start = - 1 , longest_end = 0 ;

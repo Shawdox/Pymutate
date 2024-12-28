@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_NUMBER_SUBSETS_DISTINCT_ELEMENTS_1{
 static int f_gold ( int arr [ ] , int n ) {
   HashMap < Integer , Integer > mp = new HashMap < > ( ) ;

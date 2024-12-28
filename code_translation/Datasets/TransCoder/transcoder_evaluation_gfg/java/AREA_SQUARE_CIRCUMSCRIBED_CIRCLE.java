@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class AREA_SQUARE_CIRCUMSCRIBED_CIRCLE{
 static int f_gold ( int r ) {
   return ( 2 * r * r ) ;

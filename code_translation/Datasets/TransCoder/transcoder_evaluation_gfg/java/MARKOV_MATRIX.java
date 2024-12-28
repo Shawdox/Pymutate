@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MARKOV_MATRIX{
 static boolean f_gold ( double m [ ] [ ] ) {
   for ( int i = 0 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_SUBSEQUENCES_STRING_DIVISIBLE_N{
 static int f_gold ( String str , int n ) {
   int len = str . length ( ) ;

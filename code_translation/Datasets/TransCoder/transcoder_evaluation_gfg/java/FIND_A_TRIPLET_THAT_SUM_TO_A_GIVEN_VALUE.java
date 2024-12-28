@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_A_TRIPLET_THAT_SUM_TO_A_GIVEN_VALUE{
 static boolean f_gold ( int A [ ] , int arr_size , int sum ) {
   int l , r ;

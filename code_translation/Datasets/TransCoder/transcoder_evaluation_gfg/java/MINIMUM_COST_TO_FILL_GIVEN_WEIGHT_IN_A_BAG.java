@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_COST_TO_FILL_GIVEN_WEIGHT_IN_A_BAG{
 public static int f_gold ( int cost [ ] , int n , int W ) {
   Vector < Integer > val = new Vector < Integer > ( ) ;

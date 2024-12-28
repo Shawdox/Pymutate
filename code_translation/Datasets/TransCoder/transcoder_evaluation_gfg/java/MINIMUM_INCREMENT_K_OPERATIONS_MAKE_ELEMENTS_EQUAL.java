@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_INCREMENT_K_OPERATIONS_MAKE_ELEMENTS_EQUAL{
 static int f_gold ( int arr [ ] , int n , int k ) {
   int max = Arrays.stream(arr).max().getAsInt() ;

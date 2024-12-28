@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_IF_A_NUMBER_IS_POWER_OF_ANOTHER_NUMBER_1{
 static boolean f_gold ( int x , int y ) {
     int res1 = (int) (Math . log ( y ) / Math . log ( x ));

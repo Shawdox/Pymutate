@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PRIMALITY_TEST_SET_5USING_LUCAS_LEHMER_SERIES{
 static boolean f_gold ( int p ) {
   Long checkNumber = (long) Math . pow ( 2 , p ) - 1 ;

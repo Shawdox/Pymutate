@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NON_REPEATING_ELEMENT_1{
 static int f_gold ( int arr [ ] , int n ) {
   Map < Integer , Integer > m = new HashMap < > ( ) ;

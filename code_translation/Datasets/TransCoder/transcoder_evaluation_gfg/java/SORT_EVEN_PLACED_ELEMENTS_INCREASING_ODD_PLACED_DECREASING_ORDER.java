@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SORT_EVEN_PLACED_ELEMENTS_INCREASING_ODD_PLACED_DECREASING_ORDER{
 static void f_gold ( int arr [ ] , int n ) {
   Vector < Integer > evenArr = new Vector < Integer > ( ) ;

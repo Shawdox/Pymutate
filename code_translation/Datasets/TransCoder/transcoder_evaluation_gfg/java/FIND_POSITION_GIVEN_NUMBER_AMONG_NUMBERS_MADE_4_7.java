@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_POSITION_GIVEN_NUMBER_AMONG_NUMBERS_MADE_4_7{
 static int f_gold ( String n ) {
   int k = 0 , pos = 0 , i = 0 ;

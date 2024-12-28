@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MEDIAN_OF_TWO_SORTED_ARRAYS{
 static int f_gold ( int ar1 [ ] , int ar2 [ ] , int n ) {
   int i = 0 ;

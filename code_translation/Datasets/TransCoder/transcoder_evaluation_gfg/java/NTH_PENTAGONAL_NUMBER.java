@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NTH_PENTAGONAL_NUMBER{
 static int f_gold ( int n ) {
   return ( 3 * n * n - n ) / 2 ;

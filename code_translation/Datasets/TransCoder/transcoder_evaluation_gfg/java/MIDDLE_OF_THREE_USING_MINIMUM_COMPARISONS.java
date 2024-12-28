@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MIDDLE_OF_THREE_USING_MINIMUM_COMPARISONS{
 public static int f_gold ( int a , int b , int c ) {
   if ( ( a < b && b < c ) || ( c < b && b < a ) ) return b ;

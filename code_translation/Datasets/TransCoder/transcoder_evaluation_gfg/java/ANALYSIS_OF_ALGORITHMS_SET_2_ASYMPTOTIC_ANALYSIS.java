@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class ANALYSIS_OF_ALGORITHMS_SET_2_ASYMPTOTIC_ANALYSIS{
 static int f_gold ( int arr [ ] , int n , int x ) {
   int i ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class BREAK_NUMBER_THREE_PARTS{
 static long f_gold ( long n ) {
   long count = 0 ;

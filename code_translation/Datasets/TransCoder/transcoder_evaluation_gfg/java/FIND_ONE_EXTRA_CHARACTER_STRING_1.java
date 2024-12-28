@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_ONE_EXTRA_CHARACTER_STRING_1{
 static char f_gold ( String strA , String strB ) {
   int res = 0 , i ;

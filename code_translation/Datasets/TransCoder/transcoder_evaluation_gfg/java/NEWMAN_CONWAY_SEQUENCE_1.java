@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NEWMAN_CONWAY_SEQUENCE_1{
 static int f_gold ( int n ) {
   int f [ ] = new int [ n + 1 ] ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_SUM_EVEN_FACTORS_NUMBER{
 public static int f_gold ( int n ) {
   if ( n % 2 != 0 ) return 0 ;

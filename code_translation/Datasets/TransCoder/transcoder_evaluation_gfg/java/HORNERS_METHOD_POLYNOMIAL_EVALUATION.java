@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class HORNERS_METHOD_POLYNOMIAL_EVALUATION{
 static int f_gold ( int poly [ ] , int n , int x ) {
   int result = poly [ 0 ] ;

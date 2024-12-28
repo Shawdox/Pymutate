@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_LAST_DIGIT_FACTORIAL_DIVIDES_FACTORIAL_B{
 static int f_gold ( long A , long B ) {
   int variable = 1 ;

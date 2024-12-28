@@ -35,8 +35,11 @@ samples = []
 with open(file_path, "r", encoding="utf-8") as file:
     for line in file:
         # 解析 JSON 数据
-        record = json.loads(line.strip())
-        samples.append(record)
+        try:
+            record = json.loads(line.strip())
+            samples.append(record)
+        except:
+            pass
 
 for item in samples:
     # 将各个变量解包

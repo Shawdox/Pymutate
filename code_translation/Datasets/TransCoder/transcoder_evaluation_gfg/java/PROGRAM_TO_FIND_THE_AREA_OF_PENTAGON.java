@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_TO_FIND_THE_AREA_OF_PENTAGON{
 static float f_gold ( float a ) {
   float area ;

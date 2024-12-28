@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_NUMBER_SEGMENTS_LENGTHS_B_C{
 static int f_gold ( int n , int a , int b , int c ) {
   int dp [ ] = new int [ n + 10 ] ;

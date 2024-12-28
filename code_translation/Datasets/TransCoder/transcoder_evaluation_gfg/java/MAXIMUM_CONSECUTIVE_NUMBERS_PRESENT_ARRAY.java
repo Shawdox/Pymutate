@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_CONSECUTIVE_NUMBERS_PRESENT_ARRAY{
 static int f_gold ( int arr [ ] , int n ) {
   HashSet < Integer > S = new HashSet < Integer > ( ) ;

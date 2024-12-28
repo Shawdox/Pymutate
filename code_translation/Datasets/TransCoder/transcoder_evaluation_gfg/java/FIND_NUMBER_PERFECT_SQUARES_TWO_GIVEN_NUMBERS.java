@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_NUMBER_PERFECT_SQUARES_TWO_GIVEN_NUMBERS{
 static int f_gold ( int a , int b ) {
   int cnt = 0 ;

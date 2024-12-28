@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_CENSOR_WORD_ASTERISKS_SENTENCE{
 static String f_gold ( String text , String word ) {
   String [ ] word_list = text . split ( "\\s+" ) ;

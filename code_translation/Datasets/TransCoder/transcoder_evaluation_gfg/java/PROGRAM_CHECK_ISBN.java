@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_CHECK_ISBN{
 static boolean f_gold ( String isbn ) {
   int n = isbn . length ( ) ;

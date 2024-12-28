@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PERMUTE_TWO_ARRAYS_SUM_EVERY_PAIR_GREATER_EQUAL_K{
 static boolean f_gold ( Integer a [ ] , int b [ ] , int n , int k ) {
   a = Arrays.copyOfRange(a, 0, n);

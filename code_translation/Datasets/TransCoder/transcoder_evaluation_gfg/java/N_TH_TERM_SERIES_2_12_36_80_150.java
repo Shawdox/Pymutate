@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class N_TH_TERM_SERIES_2_12_36_80_150{
 public static int f_gold ( int n ) {
   return ( n * n ) + ( n * n * n ) ;

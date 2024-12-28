@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DYNAMIC_PROGRAMMING_SET_28_MINIMUM_INSERTIONS_TO_FORM_A_PALINDROME{
 static int f_gold ( char str [ ] , int l , int h ) {
   if ( l > h ) return Integer . MAX_VALUE ;

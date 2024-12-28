@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_PERIMETER_N_BLOCKS{
 public static long f_gold ( int n ) {
   int l = ( int ) Math . sqrt ( n ) ;

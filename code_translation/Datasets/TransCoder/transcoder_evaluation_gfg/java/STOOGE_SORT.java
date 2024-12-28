@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 class STOOGE_SORT{
 static void f_gold ( int arr [ ] , int l , int h ) {
   if ( l >= h ) return ;

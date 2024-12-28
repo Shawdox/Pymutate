@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class REMAINDER_7_LARGE_NUMBERS{
 static int f_gold ( String num ) {
   int series [ ] = {

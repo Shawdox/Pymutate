@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_VISIBLE_BOXES_PUTTING_ONE_INSIDE_ANOTHER{
 static int f_gold ( int [ ] arr , int n ) {
   Queue < Integer > q = new LinkedList < > ( ) ;

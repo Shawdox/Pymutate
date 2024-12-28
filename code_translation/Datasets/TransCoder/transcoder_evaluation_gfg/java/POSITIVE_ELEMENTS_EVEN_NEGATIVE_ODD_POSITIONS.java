@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 class POSITIVE_ELEMENTS_EVEN_NEGATIVE_ODD_POSITIONS{
 static void f_gold ( int a [ ] , int size ) {
   int positive = 0 , negative = 1 , temp ;

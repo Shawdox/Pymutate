@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_UNIQUE_RECTANGLES_FORMED_USING_N_UNIT_SQUARES{
 static int f_gold ( int n ) {
   int ans = 0 ;

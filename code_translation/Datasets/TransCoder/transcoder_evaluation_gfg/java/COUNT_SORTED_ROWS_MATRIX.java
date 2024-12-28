@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_SORTED_ROWS_MATRIX{
 static int f_gold ( int mat [ ] [ ] , int r , int c ) {
   int result = 0 ;

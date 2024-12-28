@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SUM_K_TH_GROUP_ODD_POSITIVE_NUMBERS{
 public static int f_gold ( int k ) {
   int cur = ( k * ( k - 1 ) ) + 1 ;

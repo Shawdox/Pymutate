@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class HARDY_RAMANUJAN_THEOREM{
 static int f_gold ( int n ) {
   int count = 0 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_WHETHER_LARGE_NUMBER_DIVISIBLE_7{
 static boolean f_gold ( String num ) {
   int n = num . length ( ) ;

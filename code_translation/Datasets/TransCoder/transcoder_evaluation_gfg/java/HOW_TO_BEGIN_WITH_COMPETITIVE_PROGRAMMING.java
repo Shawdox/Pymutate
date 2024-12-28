@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class HOW_TO_BEGIN_WITH_COMPETITIVE_PROGRAMMING{
 static int f_gold ( int arr [ ] , int n , int x ) {
   for ( int i = 0 ;

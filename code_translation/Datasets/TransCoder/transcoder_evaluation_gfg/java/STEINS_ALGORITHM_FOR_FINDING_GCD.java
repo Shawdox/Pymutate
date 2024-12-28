@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class STEINS_ALGORITHM_FOR_FINDING_GCD{
 static int f_gold ( int a , int b ) {
   if ( a == 0 ) return b ;

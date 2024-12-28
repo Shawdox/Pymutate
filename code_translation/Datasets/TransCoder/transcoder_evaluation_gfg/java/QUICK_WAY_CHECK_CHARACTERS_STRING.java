@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class QUICK_WAY_CHECK_CHARACTERS_STRING{
 static boolean f_gold ( String s ) {
   int n = s . length ( ) ;

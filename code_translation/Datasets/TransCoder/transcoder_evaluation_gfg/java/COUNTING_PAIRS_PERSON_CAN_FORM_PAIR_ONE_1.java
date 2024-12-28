@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNTING_PAIRS_PERSON_CAN_FORM_PAIR_ONE_1{
 static int f_gold ( int x ) {
   int dp [ ] = new int [ x + 1 ] ;

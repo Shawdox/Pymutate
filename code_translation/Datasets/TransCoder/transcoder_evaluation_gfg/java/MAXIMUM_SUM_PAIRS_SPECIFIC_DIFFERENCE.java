@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_SUM_PAIRS_SPECIFIC_DIFFERENCE{
 static int f_gold ( int arr [ ] , int N , int K ) {
   Arrays . sort ( arr ) ;

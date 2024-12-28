@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_MINIMUM_ELEMENT_IN_A_SORTED_AND_ROTATED_ARRAY{
 static int f_gold ( int arr [ ] , int low , int high ) {
   if ( high < low ) return arr [ 0 ] ;

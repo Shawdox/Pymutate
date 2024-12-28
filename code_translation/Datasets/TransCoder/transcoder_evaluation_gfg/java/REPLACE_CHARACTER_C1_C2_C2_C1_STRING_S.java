@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class REPLACE_CHARACTER_C1_C2_C2_C1_STRING_S{
 static String f_gold ( String s , char c1 , char c2 ) {
   int l = s . length ( ) ;

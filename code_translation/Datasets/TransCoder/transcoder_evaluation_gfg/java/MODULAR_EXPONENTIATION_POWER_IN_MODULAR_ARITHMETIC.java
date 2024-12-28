@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MODULAR_EXPONENTIATION_POWER_IN_MODULAR_ARITHMETIC{
 static int f_gold ( int x , int y , int p ) {
   int res = 1 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CENTER_ELEMENT_OF_MATRIX_EQUALS_SUMS_OF_HALF_DIAGONALS{
 static boolean f_gold ( int mat [ ] [ ] , int n ) {
   int diag1_left = 0 , diag1_right = 0 ;

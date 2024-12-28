@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SUM_PAIRWISE_PRODUCTS{
 static int f_gold ( int n ) {
   int sum = 0 ;

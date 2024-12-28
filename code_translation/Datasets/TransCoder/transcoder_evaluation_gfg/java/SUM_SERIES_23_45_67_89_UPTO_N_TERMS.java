@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SUM_SERIES_23_45_67_89_UPTO_N_TERMS{
 static double f_gold ( int n ) {
   int i = 1 ;

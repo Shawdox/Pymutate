@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_XOR_VALUE_PAIR{
 static int f_gold ( int arr [ ] , int n ) {
   int min_xor = Integer . MAX_VALUE ;

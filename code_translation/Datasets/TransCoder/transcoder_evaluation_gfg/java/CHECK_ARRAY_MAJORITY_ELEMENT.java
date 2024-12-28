@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_ARRAY_MAJORITY_ELEMENT{
 static boolean f_gold ( int a [ ] , int n ) {
   HashMap < Integer , Integer > mp = new HashMap < Integer , Integer > ( ) ;

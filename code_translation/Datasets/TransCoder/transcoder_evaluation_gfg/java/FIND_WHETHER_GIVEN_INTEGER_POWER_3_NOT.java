@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_WHETHER_GIVEN_INTEGER_POWER_3_NOT{
 static boolean f_gold ( int n ) {
   return 1162261467 % n == 0 ;

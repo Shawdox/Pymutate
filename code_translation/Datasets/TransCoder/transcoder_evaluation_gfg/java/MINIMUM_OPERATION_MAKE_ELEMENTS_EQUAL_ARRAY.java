@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_OPERATION_MAKE_ELEMENTS_EQUAL_ARRAY{
 public static int f_gold ( int arr [ ] , int n ) {
   HashMap < Integer , Integer > hash = new HashMap < Integer , Integer > ( ) ;

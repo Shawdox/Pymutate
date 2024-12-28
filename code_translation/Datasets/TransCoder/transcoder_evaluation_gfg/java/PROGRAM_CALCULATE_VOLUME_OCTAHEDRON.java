@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_CALCULATE_VOLUME_OCTAHEDRON{
 static double f_gold ( double side ) {
   return ( ( side * side * side ) * ( Math . sqrt ( 2 ) / 3 ) ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_ROTATIONS_DIVISIBLE_8{
 static int f_gold ( String n ) {
   int len = n . length ( ) ;

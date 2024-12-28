@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LOWER_CASE_UPPER_CASE_INTERESTING_FACT{
 static String f_gold ( char [ ] in ) {
   for ( int i = 0 ;

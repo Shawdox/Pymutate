@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class ARRAY_RANGE_QUERIES_ELEMENTS_FREQUENCY_VALUE{
 static int f_gold ( int start , int end , int arr [ ] ) {
   Map < Integer , Integer > mp = new HashMap < > ( ) ;

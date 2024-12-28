@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DETECT_IF_TWO_INTEGERS_HAVE_OPPOSITE_SIGNS{
 static boolean f_gold ( int x , int y ) {
   return ( ( x ^ y ) < 0 ) ;

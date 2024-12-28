@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_SUM_MODULO_K_FIRST_N_NATURAL_NUMBER{
 static int f_gold ( int N , int K ) {
   int ans = 0 ;

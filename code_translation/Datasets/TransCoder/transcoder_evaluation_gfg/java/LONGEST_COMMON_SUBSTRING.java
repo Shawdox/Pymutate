@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LONGEST_COMMON_SUBSTRING{
 static int f_gold ( char X [ ] , char Y [ ] , int m , int n ) {
   int LCStuff [ ] [ ] = new int [ m + 1 ] [ n + 1 ] ;

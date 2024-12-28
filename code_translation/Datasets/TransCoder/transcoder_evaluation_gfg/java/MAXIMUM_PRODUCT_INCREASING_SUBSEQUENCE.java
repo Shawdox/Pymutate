@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_PRODUCT_INCREASING_SUBSEQUENCE{
 static int f_gold ( int [ ] arr , int n ) {
   int [ ] mpis = new int [ n ] ;

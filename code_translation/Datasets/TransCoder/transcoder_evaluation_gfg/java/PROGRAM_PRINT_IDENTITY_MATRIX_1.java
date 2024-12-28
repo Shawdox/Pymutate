@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_PRINT_IDENTITY_MATRIX_1{
 static boolean f_gold ( int mat [ ] [ ] , int N ) {
   for ( int row = 0 ;

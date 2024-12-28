@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_SUM_SUBARRAY_REMOVING_ONE_ELEMENT{
 static int f_gold ( int arr [ ] , int n ) {
   int fw [ ] = new int [ n ] ;

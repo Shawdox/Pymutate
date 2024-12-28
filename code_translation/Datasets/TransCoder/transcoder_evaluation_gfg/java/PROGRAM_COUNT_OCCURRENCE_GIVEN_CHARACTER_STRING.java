@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_COUNT_OCCURRENCE_GIVEN_CHARACTER_STRING{
 public static int f_gold ( String s , char c ) {
   int res = 0 ;

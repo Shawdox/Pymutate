@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_INDEX_PAIRS_EQUAL_ELEMENTS_ARRAY{
 static int f_gold ( int arr [ ] , int n ) {
   int ans = 0 ;

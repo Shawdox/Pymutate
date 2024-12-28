@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CALCULATE_ANGLE_HOUR_HAND_MINUTE_HAND{
 static int f_gold ( double h , double m ) {
   if ( h < 0 || m < 0 || h > 12 || m > 60 ) System . out . println ( "Wrong input" ) ;

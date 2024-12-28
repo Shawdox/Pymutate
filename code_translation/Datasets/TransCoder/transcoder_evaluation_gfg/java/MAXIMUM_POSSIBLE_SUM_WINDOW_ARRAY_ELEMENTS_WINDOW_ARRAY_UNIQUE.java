@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_POSSIBLE_SUM_WINDOW_ARRAY_ELEMENTS_WINDOW_ARRAY_UNIQUE{
 static int f_gold ( int A [ ] , int B [ ] , int n ) {
   Set < Integer > mp = new HashSet < Integer > ( ) ;

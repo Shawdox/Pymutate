@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_POSSIBLE_TRANSFORM_ONE_STRING_ANOTHER{
 static boolean f_gold ( String s1 , String s2 ) {
   int n = s1 . length ( ) ;

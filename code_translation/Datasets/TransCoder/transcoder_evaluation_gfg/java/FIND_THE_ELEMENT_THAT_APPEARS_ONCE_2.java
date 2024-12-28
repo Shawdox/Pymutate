@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_THE_ELEMENT_THAT_APPEARS_ONCE_2{
 static int f_gold ( int a [ ] , int n ) {
   HashSet < Integer > s = new HashSet < Integer > ( ) ;

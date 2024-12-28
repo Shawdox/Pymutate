@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_DIGITS_REMOVED_MAKE_NUMBER_DIVISIBLE_3{
 static int f_gold ( String num ) {
   int n = num . length ( ) ;

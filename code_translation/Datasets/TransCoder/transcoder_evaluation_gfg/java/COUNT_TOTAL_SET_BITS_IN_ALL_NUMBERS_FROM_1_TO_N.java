@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_TOTAL_SET_BITS_IN_ALL_NUMBERS_FROM_1_TO_N{
 static int f_gold ( int n ) {
   int i = 0 ;

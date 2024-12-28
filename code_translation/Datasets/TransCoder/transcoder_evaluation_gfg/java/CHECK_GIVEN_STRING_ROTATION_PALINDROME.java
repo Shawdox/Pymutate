@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_GIVEN_STRING_ROTATION_PALINDROME{
 static boolean f_gold ( String str ) {
   int l = 0 ;

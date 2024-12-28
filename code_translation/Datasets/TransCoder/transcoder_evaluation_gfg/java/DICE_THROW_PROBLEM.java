@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DICE_THROW_PROBLEM{
 public static long f_gold ( int m , int n , int x ) {
   long [ ] [ ] table = new long [ n + 1 ] [ x + 1 ] ;

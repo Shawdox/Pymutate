@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_VALUE_CHOICE_EITHER_DIVIDING_CONSIDERING{
 static int f_gold ( int n ) {
   int res [ ] = new int [ n + 1 ] ;

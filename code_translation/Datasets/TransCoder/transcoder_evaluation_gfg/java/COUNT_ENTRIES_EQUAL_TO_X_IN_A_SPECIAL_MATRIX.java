@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_ENTRIES_EQUAL_TO_X_IN_A_SPECIAL_MATRIX{
 static int f_gold ( int n , int x ) {
   int f_gold = 0 ;

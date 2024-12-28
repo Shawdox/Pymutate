@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_THE_MISSING_NUMBER_1{
 static int f_gold ( int a [ ] , int n ) {
   int total = 1 ;

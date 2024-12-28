@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_INSERTIONS_SORT_ARRAY{
 static int f_gold ( int arr [ ] , int N ) {
   int [ ] lis = new int [ N ] ;

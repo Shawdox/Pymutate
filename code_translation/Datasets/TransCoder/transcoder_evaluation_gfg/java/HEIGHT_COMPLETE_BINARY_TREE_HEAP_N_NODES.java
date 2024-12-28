@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class HEIGHT_COMPLETE_BINARY_TREE_HEAP_N_NODES{
 static int f_gold ( int N ) {
   return ( int ) Math . ceil ( Math . log ( N + 1 ) / Math . log ( 2 ) ) - 1 ;

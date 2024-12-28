@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_BINARY_DECIMAL_CONVERSION_1{
 static int f_gold ( String n ) {
   String num = n ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_A_ROTATION_WITH_MAXIMUM_HAMMING_DISTANCE{
 static int f_gold ( int arr [ ] , int n ) {
   int brr [ ] = new int [ 2 * n + 1 ] ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class ROW_WISE_COMMON_ELEMENTS_TWO_DIAGONALS_SQUARE_MATRIX{
 static int f_gold ( int mat [ ] [ ] , int n ) {
   int res = 0 ;

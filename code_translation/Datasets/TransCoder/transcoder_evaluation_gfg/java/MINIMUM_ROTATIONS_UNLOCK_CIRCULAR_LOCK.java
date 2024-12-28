@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_ROTATIONS_UNLOCK_CIRCULAR_LOCK{
 static int f_gold ( int input , int unlock_code ) {
   int rotation = 0 ;

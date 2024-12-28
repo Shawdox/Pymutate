@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LONGEST_PREFIX_ALSO_SUFFIX_1{
 static int f_gold ( String s ) {
   int n = s . length ( ) ;

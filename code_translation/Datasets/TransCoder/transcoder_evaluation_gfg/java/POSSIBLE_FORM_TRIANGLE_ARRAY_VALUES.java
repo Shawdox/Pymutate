@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class POSSIBLE_FORM_TRIANGLE_ARRAY_VALUES{
 static boolean f_gold ( int [ ] arr , int N ) {
   arr = Arrays.copyOfRange ( arr , 0 , N ) ;

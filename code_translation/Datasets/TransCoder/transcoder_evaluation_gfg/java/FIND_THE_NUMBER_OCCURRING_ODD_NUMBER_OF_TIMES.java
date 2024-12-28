@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_THE_NUMBER_OCCURRING_ODD_NUMBER_OF_TIMES{
 static int f_gold ( int arr [ ] , int arr_size ) {
   int i ;

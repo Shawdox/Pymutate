@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_DISTANCE_TWO_POINTS_EARTH{
 public static double f_gold ( double lat1 , double lat2 , double lon1 , double lon2 ) {
   lon1 = Math . toRadians ( lon1 ) ;

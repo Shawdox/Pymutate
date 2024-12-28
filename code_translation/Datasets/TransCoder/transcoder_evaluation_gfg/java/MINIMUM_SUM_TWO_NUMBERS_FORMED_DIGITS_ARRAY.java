@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_SUM_TWO_NUMBERS_FORMED_DIGITS_ARRAY{
 static int f_gold ( int arr [ ] , int n ) {
   Arrays . sort ( arr ) ;

@@ -10,7 +10,7 @@ current_working_directory = os.getcwd()
 if current_working_directory not in sys.path:
     sys.path.insert(0, current_working_directory)
 
-from util.helper import get_output_file_path_for_translation, load_dataset_with_retry
+from util.helper import get_output_file_path_for_translation, load_dataset_with_retry, extract_import_and_class
 
 from datasets import disable_progress_bar
 disable_progress_bar()
@@ -96,7 +96,7 @@ for item in tqdm(samples):
         generated_content = raw_generated_content[raw_generated_content.find(f"```{target_lang}") + len(f"```{target_lang}"):]
         exec_code = generated_content[:generated_content.find("```")]
     else:
-        exec_code = generated_content
+        exec_code = extract_import_and_class(raw_generated_content)
 
     # 编译并执行 Java 代码
     try:
@@ -115,7 +115,7 @@ for item in tqdm(samples):
             try:
                 stdout, stderr_data = p.communicate(input=f_in.encode(), timeout=20)
             except subprocess.TimeoutExpired:
-                pass
+                p.kill()
 
         try:
             if float(stdout.decode())%1 == 0:

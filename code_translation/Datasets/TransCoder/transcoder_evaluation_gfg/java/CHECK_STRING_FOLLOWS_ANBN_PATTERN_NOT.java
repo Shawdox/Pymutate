@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_STRING_FOLLOWS_ANBN_PATTERN_NOT{
 public static boolean f_gold ( String s ) {
   int l = s . length ( ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIRST_ELEMENT_OCCURRING_K_TIMES_ARRAY{
 static int f_gold ( int arr [ ] , int n , int k ) {
   HashMap < Integer , Integer > count_map = new HashMap < > ( ) ;

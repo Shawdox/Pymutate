@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROBABILITY_THREE_RANDOMLY_CHOSEN_NUMBERS_AP{
 static double f_gold ( int n ) {
   return ( 3.0 * n ) / ( 4.0 * ( n * n ) - 1 ) ;

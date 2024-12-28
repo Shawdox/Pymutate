@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_FOR_SURFACE_AREA_OF_OCTAHEDRON{
 static double f_gold ( double side ) {
   return ( 2 * ( Math . sqrt ( 3 ) ) * ( side * side ) ) ;

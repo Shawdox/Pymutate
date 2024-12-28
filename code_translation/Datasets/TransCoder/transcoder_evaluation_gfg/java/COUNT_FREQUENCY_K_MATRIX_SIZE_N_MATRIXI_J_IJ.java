@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_FREQUENCY_K_MATRIX_SIZE_N_MATRIXI_J_IJ{
 public static int f_gold ( int n , int k ) {
   if ( n + 1 >= k ) return ( k - 1 ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LONGEST_SUBARRAY_SUM_DIVISIBLE_K{
 static int f_gold ( int arr [ ] , int n , int k ) {
   HashMap < Integer , Integer > um = new HashMap < Integer , Integer > ( ) ;

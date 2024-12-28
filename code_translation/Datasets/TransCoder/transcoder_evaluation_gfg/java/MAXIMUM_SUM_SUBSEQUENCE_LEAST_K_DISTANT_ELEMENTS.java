@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_SUM_SUBSEQUENCE_LEAST_K_DISTANT_ELEMENTS{
 static int f_gold ( int arr [ ] , int N , int k ) {
   int MS [ ] = new int [ N ] ;

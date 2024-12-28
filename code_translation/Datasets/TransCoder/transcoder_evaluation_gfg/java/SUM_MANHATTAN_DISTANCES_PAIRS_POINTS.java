@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SUM_MANHATTAN_DISTANCES_PAIRS_POINTS{
 static int f_gold ( int x [ ] , int y [ ] , int n ) {
   int sum = 0 ;

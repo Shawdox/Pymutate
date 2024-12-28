@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_DIGITS_FACTORIAL_SET_1{
 static int f_gold ( int n ) {
   if ( n < 0 ) return 0 ;

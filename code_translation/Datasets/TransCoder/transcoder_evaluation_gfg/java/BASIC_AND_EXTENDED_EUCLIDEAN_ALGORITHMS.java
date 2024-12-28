@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class BASIC_AND_EXTENDED_EUCLIDEAN_ALGORITHMS{
 public static int f_gold ( int a , int b ) {
   if ( a == 0 ) return b ;

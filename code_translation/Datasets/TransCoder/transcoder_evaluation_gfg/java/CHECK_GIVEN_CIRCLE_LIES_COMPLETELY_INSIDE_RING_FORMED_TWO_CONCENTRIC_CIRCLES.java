@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_GIVEN_CIRCLE_LIES_COMPLETELY_INSIDE_RING_FORMED_TWO_CONCENTRIC_CIRCLES{
 public static boolean f_gold ( int r , int R , int r1 , int x1 , int y1 ) {
   int dis = ( int ) Math . sqrt ( x1 * x1 + y1 * y1 ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_FOR_DEADLOCK_FREE_CONDITION_IN_OPERATING_SYSTEM{
 static int f_gold ( int process , int need ) {
   int minResources = 0 ;

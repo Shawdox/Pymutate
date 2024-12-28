@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_THE_FIRST_MISSING_NUMBER{
 static int f_gold ( int array [ ] , int start , int end ) {
   if ( start > end ) return end + 1 ;

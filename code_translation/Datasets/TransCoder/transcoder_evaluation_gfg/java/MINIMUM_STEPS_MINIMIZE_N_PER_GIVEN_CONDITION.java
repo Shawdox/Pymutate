@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_STEPS_MINIMIZE_N_PER_GIVEN_CONDITION{
 static int f_gold ( int n ) {
   int table [ ] = new int [ n + 1 ] ;

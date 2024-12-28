@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class HYPERCUBE_GRAPH{
 static int f_gold ( int n ) {
   if ( n == 1 ) return 2 ;

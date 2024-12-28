@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_ARRAYS_CONSECUTIVE_ELEMENT_DIFFERENT_VALUES{
 public static int f_gold ( int n , int k , int x ) {
   int [ ] dp = new int [ 109 ] ;

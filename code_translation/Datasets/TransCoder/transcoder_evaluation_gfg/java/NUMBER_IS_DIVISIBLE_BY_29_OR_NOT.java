@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_IS_DIVISIBLE_BY_29_OR_NOT{
 static boolean f_gold ( long n ) {
   while ( n / 100 > 0 ) {

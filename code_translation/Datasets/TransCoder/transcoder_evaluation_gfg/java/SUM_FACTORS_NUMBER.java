@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SUM_FACTORS_NUMBER{
 static int f_gold ( int n ) {
   int result = 0 ;

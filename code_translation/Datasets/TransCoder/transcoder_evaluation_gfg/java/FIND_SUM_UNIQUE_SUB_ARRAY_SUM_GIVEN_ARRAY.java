@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_SUM_UNIQUE_SUB_ARRAY_SUM_GIVEN_ARRAY{
 static int f_gold ( int [ ] arr , int n ) {
   int res = 0 ;

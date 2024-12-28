@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_AREA_SQUARE{
 static int f_gold ( int side ) {
   int area = side * side ;

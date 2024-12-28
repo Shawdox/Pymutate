@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_SUM_NODES_GIVEN_PERFECT_BINARY_TREE_1{
 static double f_gold ( int l ) {
   double leafNodeCount = Math . pow ( 2 , l - 1 ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LONGEST_INCREASING_ODD_EVEN_SUBSEQUENCE{
 public static int f_gold ( int arr [ ] , int n ) {
   int [ ] lioes = new int [ n ] ;

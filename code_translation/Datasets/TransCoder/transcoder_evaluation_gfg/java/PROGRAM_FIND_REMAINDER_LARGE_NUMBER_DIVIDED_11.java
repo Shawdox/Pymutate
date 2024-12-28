@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_FIND_REMAINDER_LARGE_NUMBER_DIVIDED_11{
 static int f_gold ( String str ) {
   int len = str . length ( ) ;

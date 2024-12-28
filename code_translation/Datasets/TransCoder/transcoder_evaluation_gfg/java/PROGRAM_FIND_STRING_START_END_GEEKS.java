@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_FIND_STRING_START_END_GEEKS{
 static boolean f_gold ( String str , String corner ) {
   int n = str . length ( ) ;

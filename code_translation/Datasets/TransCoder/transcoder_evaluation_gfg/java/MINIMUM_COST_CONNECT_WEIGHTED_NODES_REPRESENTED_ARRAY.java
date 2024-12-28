@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_COST_CONNECT_WEIGHTED_NODES_REPRESENTED_ARRAY{
 static int f_gold ( int a [ ] , int n ) {
   int mn = Integer . MAX_VALUE ;

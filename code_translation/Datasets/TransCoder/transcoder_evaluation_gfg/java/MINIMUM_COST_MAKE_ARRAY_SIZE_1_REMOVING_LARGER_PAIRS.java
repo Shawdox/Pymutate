@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_COST_MAKE_ARRAY_SIZE_1_REMOVING_LARGER_PAIRS{
 static int f_gold ( int [ ] a , int n ) {
   int min = a [ 0 ] ;

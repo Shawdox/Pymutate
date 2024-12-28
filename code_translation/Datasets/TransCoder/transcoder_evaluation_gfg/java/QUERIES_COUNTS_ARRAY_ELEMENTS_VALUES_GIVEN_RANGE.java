@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class QUERIES_COUNTS_ARRAY_ELEMENTS_VALUES_GIVEN_RANGE{
 static int f_gold ( int arr [ ] , int n , int x , int y ) {
   int count = 0 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SQUARE_ROOT_OF_A_PERFECT_SQUARE{
 static float f_gold ( float n ) {
   float x = n ;

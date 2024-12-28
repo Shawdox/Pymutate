@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class REMOVE_ARRAY_END_ELEMENT_MAXIMIZE_SUM_PRODUCT{
 static int f_gold ( int dp [ ] [ ] , int a [ ] , int low , int high , int turn ) {
   if ( low == high ) {

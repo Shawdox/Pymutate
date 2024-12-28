@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class HOW_TO_CHECK_IF_A_GIVEN_ARRAY_REPRESENTS_A_BINARY_HEAP{
 static boolean f_gold ( int arr [ ] , int i , int n ) {
   if ( i > ( n - 2 ) / 2 ) {

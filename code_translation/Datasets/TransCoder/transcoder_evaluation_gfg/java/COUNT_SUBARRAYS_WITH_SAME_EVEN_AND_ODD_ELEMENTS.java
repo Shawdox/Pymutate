@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_SUBARRAYS_WITH_SAME_EVEN_AND_ODD_ELEMENTS{
 static int f_gold ( int [ ] arr , int n ) {
   int difference = 0 ;

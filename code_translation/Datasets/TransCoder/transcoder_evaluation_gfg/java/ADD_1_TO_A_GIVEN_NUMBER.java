@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class ADD_1_TO_A_GIVEN_NUMBER{
 static int f_gold ( int x ) {
   int m = 1 ;

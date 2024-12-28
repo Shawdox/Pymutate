@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class TILING_WITH_DOMINOES{
 static int f_gold ( int n ) {
   int [ ] A = new int [ n + 1 ] ;

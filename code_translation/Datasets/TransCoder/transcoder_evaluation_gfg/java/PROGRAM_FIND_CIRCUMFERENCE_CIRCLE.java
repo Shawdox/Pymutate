@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_FIND_CIRCUMFERENCE_CIRCLE{
 static double f_gold ( double r ) {
   double PI = 3.1415 ;

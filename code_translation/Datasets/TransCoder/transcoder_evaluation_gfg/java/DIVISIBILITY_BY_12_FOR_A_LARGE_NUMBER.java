@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DIVISIBILITY_BY_12_FOR_A_LARGE_NUMBER{
 static boolean f_gold ( String num ) {
   if ( num . length ( ) >= 3 ) {

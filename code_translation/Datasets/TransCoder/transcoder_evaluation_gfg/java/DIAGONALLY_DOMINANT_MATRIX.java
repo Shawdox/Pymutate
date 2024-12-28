@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DIAGONALLY_DOMINANT_MATRIX{
 static boolean f_gold ( int m [ ] [ ] , int n ) {
   for ( int i = 0 ;

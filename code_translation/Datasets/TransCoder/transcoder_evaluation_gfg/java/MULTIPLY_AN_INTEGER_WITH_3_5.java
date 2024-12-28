@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MULTIPLY_AN_INTEGER_WITH_3_5{
 static int f_gold ( int x ) {
   return ( x << 1 ) + x + ( x >> 1 ) ;

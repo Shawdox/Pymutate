@@ -5,7 +5,7 @@ code_translation/Datasets/CodeLingua/avatar/avatar.json
 __pycache__/
 .pytest_cache/
 .DS_Store
-/tmp/
+*tmp*/
 **/result/
 mail.py
 /code_translation/Datasets/Humaneval-x/humaneval-x/

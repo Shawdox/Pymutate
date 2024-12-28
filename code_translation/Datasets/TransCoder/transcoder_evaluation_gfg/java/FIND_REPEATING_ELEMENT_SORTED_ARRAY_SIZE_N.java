@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_REPEATING_ELEMENT_SORTED_ARRAY_SIZE_N{
 static int f_gold ( int arr [ ] , int low , int high ) {
   if ( low > high ) return - 1 ;

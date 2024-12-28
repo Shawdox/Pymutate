@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COMPUTE_MODULUS_DIVISION_BY_A_POWER_OF_2_NUMBER{
 static int f_gold ( int n , int d ) {
   return ( n & ( d - 1 ) ) ;

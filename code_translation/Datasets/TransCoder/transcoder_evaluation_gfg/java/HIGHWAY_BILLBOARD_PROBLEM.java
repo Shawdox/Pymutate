@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class HIGHWAY_BILLBOARD_PROBLEM{
 static int f_gold ( int m , int [ ] x , int [ ] revenue , int n , int t ) {
   int [ ] maxRev = new int [ m + 1 ] ;

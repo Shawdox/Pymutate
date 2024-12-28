@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class N_TH_NUMBER_WHOSE_SUM_OF_DIGITS_IS_TEN{
 public static int f_gold ( int n ) {
   int count = 0 ;

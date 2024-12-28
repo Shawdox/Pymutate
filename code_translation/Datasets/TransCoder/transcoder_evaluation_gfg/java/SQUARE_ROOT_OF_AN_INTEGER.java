@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SQUARE_ROOT_OF_AN_INTEGER{
 static int f_gold ( int x ) {
   if ( x == 0 || x == 1 ) return x ;

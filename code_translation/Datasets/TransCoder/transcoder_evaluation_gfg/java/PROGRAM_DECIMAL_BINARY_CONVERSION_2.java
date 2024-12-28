@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_DECIMAL_BINARY_CONVERSION_2{
 static int f_gold ( int N ) {
   int B_Number = 0 ;

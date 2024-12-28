@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 class REARRANGE_POSITIVE_AND_NEGATIVE_NUMBERS_PUBLISH{
 static void f_gold ( int arr [ ] , int n ) {
   int i = - 1 , temp = 0 ;

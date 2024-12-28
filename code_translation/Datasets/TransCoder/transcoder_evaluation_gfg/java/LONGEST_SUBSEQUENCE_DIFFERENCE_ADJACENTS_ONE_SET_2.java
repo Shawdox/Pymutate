@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LONGEST_SUBSEQUENCE_DIFFERENCE_ADJACENTS_ONE_SET_2{
 static int f_gold ( int [ ] arr , int n ) {
   HashMap < Integer , Integer > um = new HashMap < Integer , Integer > ( ) ;

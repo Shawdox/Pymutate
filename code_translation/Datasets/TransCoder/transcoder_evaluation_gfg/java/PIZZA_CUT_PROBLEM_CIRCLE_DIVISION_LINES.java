@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PIZZA_CUT_PROBLEM_CIRCLE_DIVISION_LINES{
 static int f_gold ( int n ) {
   return 1 + n * ( n + 1 ) / 2 ;

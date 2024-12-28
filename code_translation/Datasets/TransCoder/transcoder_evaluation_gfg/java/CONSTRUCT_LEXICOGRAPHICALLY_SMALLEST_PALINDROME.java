@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CONSTRUCT_LEXICOGRAPHICALLY_SMALLEST_PALINDROME{
 static String f_gold ( char [ ] str , int len ) {
   int i = 0 , j = len - 1 ;

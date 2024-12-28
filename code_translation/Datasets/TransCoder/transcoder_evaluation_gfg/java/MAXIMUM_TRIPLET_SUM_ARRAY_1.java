@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_TRIPLET_SUM_ARRAY_1{
 static int f_gold ( int arr [ ] , int n ) {
   Arrays . sort ( arr ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CASSINIS_IDENTITY{
 static int f_gold ( int n ) {
   return ( n & 1 ) != 0 ? - 1 : 1 ;

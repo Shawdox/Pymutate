@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MODULUS_TWO_FLOAT_DOUBLE_NUMBERS{
 static double f_gold ( double a , double b ) {
   if ( a < 0 ) a = - a ;

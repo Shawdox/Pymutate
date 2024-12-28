@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class STRING_CONTAINING_FIRST_LETTER_EVERY_WORD_GIVEN_STRING_SPACES{
 static String f_gold ( String str ) {
   String result = "" ;

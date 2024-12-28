@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_BINARY_DIGIT_NUMBERS_SMALLER_N{
 static int f_gold ( int N ) {
   Queue < Integer > q = new LinkedList < > ( ) ;

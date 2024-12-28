@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_ARRAY_REPRESENTS_INORDER_BINARY_SEARCH_TREE_NOT{
 static boolean f_gold ( int [ ] arr , int n ) {
   if ( n == 0 || n == 1 ) {

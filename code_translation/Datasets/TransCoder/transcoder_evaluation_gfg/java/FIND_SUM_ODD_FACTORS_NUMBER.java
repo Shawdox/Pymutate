@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_SUM_ODD_FACTORS_NUMBER{
 static int f_gold ( int n ) {
   int res = 1 ;

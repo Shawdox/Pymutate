@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class HEXAGONAL_NUMBER{
 static int f_gold ( int n ) {
   return n * ( 2 * n - 1 ) ;

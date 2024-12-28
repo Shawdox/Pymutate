@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_NUMBER_SUBSETS_DISTINCT_ELEMENTS{
 public static int f_gold ( int ar [ ] , int n ) {
   int res = 0 ;

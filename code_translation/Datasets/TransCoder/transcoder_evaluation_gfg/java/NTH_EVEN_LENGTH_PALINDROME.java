@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NTH_EVEN_LENGTH_PALINDROME{
 static String f_gold ( String n ) {
   String res = n ;

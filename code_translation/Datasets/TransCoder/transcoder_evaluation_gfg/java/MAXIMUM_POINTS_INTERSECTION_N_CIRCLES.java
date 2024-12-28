@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_POINTS_INTERSECTION_N_CIRCLES{
 static int f_gold ( int n ) {
   return n * ( n - 1 ) ;

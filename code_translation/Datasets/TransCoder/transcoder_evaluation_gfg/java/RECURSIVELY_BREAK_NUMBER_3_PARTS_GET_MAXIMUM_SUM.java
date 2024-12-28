@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class RECURSIVELY_BREAK_NUMBER_3_PARTS_GET_MAXIMUM_SUM{
 static int f_gold ( int n ) {
   if ( n == 0 || n == 1 ) return n ;

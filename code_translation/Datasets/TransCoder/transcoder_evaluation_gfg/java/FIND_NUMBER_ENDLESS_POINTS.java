@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_NUMBER_ENDLESS_POINTS{
 static int f_gold ( boolean input [ ] [ ] , int n ) {
   boolean row [ ] [ ] = new boolean [ n ] [ n ] ;

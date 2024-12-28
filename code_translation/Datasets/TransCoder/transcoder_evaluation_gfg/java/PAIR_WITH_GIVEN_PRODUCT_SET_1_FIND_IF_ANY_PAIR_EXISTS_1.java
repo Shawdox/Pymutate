@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PAIR_WITH_GIVEN_PRODUCT_SET_1_FIND_IF_ANY_PAIR_EXISTS_1{
 static boolean f_gold ( int arr [ ] , int n , int x ) {
   HashSet < Integer > hset = new HashSet < > ( ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_PAIRS_DIFFERENCE_EQUAL_K{
 static int f_gold ( int arr [ ] , int n , int k ) {
   int count = 0 ;

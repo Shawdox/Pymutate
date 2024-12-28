@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CEILING_IN_A_SORTED_ARRAY_1{
 static int f_gold ( int arr [ ] , int low , int high , int x ) {
   int mid ;

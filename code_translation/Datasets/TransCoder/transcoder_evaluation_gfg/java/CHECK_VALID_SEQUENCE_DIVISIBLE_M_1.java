@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_VALID_SEQUENCE_DIVISIBLE_M_1{
 static int f_gold ( int n , int index , int modulo , int M , int arr [ ] , int dp [ ] [ ] ) {
   modulo = ( ( modulo % M ) + M ) % M ;

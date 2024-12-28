@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_CALCULATE_AREA_OCTAGON{
 static double f_gold ( double side ) {
   return ( float ) ( 2 * ( 1 + Math . sqrt ( 2 ) ) * side * side ) ;

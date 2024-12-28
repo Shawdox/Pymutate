@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class OVERLAPPING_SUM_TWO_ARRAY{
 static int f_gold ( int [ ] A , int [ ] B , int n ) {
   HashMap < Integer , Integer > hash = new HashMap < > ( ) ;

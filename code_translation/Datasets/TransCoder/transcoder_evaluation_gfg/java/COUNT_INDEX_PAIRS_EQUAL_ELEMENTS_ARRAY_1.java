@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_INDEX_PAIRS_EQUAL_ELEMENTS_ARRAY_1{
 public static int f_gold ( int arr [ ] , int n ) {
   HashMap < Integer , Integer > hm = new HashMap < > ( ) ;

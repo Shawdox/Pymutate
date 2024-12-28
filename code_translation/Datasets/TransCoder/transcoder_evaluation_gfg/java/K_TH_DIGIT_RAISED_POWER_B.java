@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class K_TH_DIGIT_RAISED_POWER_B{
 public static int f_gold ( int a , int b , int k ) {
   int p = ( int ) Math . pow ( a , b ) ;

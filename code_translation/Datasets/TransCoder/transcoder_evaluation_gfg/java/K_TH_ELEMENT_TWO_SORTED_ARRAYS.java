@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class K_TH_ELEMENT_TWO_SORTED_ARRAYS{
 static int f_gold ( int arr1 [ ] , int arr2 [ ] , int m , int n , int k ) {
   int [ ] sorted1 = new int [ m + n ] ;

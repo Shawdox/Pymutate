@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FINDING_POWER_PRIME_NUMBER_P_N{
 static int f_gold ( int n , int p ) {
   int ans = 0 ;

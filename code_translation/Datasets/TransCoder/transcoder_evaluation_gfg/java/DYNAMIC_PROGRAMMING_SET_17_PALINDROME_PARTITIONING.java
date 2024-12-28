@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class DYNAMIC_PROGRAMMING_SET_17_PALINDROME_PARTITIONING{
 static int f_gold ( String str ) {
   int n = str . length ( ) ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_MAXIMUM_PRODUCT_OF_A_TRIPLET_IN_ARRAY_1{
 static int f_gold ( int arr [ ] , int n ) {
   if ( n < 3 ) {

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_NUMBER_BINARY_STRINGS_WITHOUT_CONSECUTIVE_1S{
 static int f_gold ( int n ) {
   int a [ ] = new int [ n ] ;

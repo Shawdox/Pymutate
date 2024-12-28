@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class BINARY_SEARCH{
 static int f_gold ( int arr [ ] , int l , int r , int x ) {
   if ( r >= l ) {

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LEXICOGRAPHICAL_CONCATENATION_SUBSTRINGS_STRING{
 static String f_gold ( String s ) {
   int n = s . length ( ) ;

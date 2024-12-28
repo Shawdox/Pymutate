@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_STRING_CAN_OBTAINED_ROTATING_ANOTHER_STRING_2_PLACES{
 static boolean f_gold ( String str1 , String str2 ) {
   if ( str1 . length ( ) != str2 . length ( ) ) return false ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_N_DIGIT_STEPPING_NUMBERS{
 static long f_gold ( int n ) {
   int dp [ ] [ ] = new int [ n + 1 ] [ 10 ] ;

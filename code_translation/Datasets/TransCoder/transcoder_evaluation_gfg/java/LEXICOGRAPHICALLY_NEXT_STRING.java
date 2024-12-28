@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LEXICOGRAPHICALLY_NEXT_STRING{
 public static String f_gold ( String str ) {
   if ( str == "" ) return "a" ;

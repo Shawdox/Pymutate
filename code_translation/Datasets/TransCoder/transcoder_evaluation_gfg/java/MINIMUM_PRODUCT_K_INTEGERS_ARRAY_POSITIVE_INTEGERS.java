@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_PRODUCT_K_INTEGERS_ARRAY_POSITIVE_INTEGERS{
 public static int f_gold ( int [ ] arr , int n , int k ) {
   PriorityQueue < Integer > pq = new PriorityQueue < > ( ) ;

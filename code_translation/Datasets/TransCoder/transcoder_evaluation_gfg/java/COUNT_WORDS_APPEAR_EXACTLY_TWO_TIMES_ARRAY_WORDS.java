@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_WORDS_APPEAR_EXACTLY_TWO_TIMES_ARRAY_WORDS{
 static int f_gold ( String str [ ] , int n ) {
   HashMap < String , Integer > m = new HashMap < > ( ) ;

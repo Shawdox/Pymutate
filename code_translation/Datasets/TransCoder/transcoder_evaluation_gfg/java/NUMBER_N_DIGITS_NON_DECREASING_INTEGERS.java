@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_N_DIGITS_NON_DECREASING_INTEGERS{
 static int f_gold ( int n ) {
   int [ ] [ ] a = new int [ n + 1 ] [ 10 ] ;

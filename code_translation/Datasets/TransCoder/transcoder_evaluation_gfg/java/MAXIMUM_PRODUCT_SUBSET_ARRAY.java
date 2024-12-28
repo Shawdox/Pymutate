@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_PRODUCT_SUBSET_ARRAY{
 static int f_gold ( int a [ ] , int n ) {
   if ( n == 1 ) {

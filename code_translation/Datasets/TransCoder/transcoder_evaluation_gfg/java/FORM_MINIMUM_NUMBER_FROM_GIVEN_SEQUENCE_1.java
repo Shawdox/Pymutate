@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FORM_MINIMUM_NUMBER_FROM_GIVEN_SEQUENCE_1{
 static String f_gold ( String seq ) {
   int n = seq . length ( ) ;

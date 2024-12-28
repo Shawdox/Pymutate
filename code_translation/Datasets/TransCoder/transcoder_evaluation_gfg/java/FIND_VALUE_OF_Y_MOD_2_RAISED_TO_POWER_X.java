@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_VALUE_OF_Y_MOD_2_RAISED_TO_POWER_X{
 static long f_gold ( long y , long x ) {
   if ( ( Math . log ( y ) / Math . log ( 2 ) ) < x ) return y ;

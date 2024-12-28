@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_NUMBERS_CAN_CONSTRUCTED_USING_TWO_NUMBERS{
 static int f_gold ( int n , int x , int y ) {
   boolean [ ] arr = new boolean [ n + 1 ] ;

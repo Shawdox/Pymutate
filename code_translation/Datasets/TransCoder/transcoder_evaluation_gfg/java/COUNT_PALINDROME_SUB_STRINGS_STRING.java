@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_PALINDROME_SUB_STRINGS_STRING{
 static int f_gold ( char str [ ] , int n ) {
   int dp [ ] [ ] = new int [ n ] [ n ] ;

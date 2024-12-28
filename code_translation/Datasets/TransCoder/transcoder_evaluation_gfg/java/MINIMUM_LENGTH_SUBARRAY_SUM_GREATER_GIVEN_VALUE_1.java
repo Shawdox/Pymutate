@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_LENGTH_SUBARRAY_SUM_GREATER_GIVEN_VALUE_1{
 static int f_gold ( int arr [ ] , int n , int x ) {
   int curr_sum = 0 , min_len = n + 1 ;

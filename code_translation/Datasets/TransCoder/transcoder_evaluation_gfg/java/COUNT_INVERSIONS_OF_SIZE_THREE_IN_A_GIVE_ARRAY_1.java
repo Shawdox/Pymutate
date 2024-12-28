@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_INVERSIONS_OF_SIZE_THREE_IN_A_GIVE_ARRAY_1{
 static int f_gold ( int arr [ ] , int n ) {
   int invcount = 0 ;

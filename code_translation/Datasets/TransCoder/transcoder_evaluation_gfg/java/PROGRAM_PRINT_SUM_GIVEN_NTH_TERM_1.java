@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_PRINT_SUM_GIVEN_NTH_TERM_1{
 static int f_gold ( long n ) {
   return ( int ) Math . pow ( n , 2 ) ;

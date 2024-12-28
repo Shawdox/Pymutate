@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SEARCH_AN_ELEMENT_IN_A_SORTED_AND_PIVOTED_ARRAY{
 static int f_gold ( int arr [ ] , int l , int h , int key ) {
   if ( l > h ) return - 1 ;

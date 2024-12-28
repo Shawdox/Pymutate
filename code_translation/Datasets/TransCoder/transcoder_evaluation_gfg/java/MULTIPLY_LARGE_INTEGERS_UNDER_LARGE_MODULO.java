@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MULTIPLY_LARGE_INTEGERS_UNDER_LARGE_MODULO{
 static long f_gold ( long a , long b , long mod ) {
   long res = 0 ;

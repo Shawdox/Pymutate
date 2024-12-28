@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MINIMUM_XOR_VALUE_PAIR_1{
 static int f_gold ( int arr [ ] , int n ) {
   arr = Arrays.copyOfRange(arr, 0, n);

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PROGRAM_FOR_FACTORIAL_OF_A_NUMBER{
 static int f_gold ( int n ) {
   if ( n == 0 ) return 1 ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SUM_BINOMIAL_COEFFICIENTS{
 static int f_gold ( int n ) {
   int C [ ] [ ] = new int [ n + 1 ] [ n + 1 ] ;

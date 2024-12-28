@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CHECK_INTEGER_OVERFLOW_MULTIPLICATION{
 static Boolean f_gold ( long a , long b ) {
   if ( a == 0 || b == 0 ) return false ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_SET_BITS_IN_AN_INTEGER_3{
 public static int f_gold ( int n ) {
   if ( n == 0 ) return 0 ;

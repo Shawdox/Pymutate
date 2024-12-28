@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_SUBSEQUENCES_AB_STRING_REPEATED_K_TIMES{
 static int f_gold ( String s , int K ) {
   int n = s . length ( ) ;

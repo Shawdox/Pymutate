@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SWAP_BITS_IN_A_GIVEN_NUMBER{
 static int f_gold ( int x , int p1 , int p2 , int n ) {
   int set1 = ( x >> p1 ) & ( ( 1 << n ) - 1 ) ;

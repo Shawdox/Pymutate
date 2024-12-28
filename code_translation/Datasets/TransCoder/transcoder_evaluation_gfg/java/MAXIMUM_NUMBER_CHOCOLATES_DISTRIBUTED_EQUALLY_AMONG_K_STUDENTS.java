@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_NUMBER_CHOCOLATES_DISTRIBUTED_EQUALLY_AMONG_K_STUDENTS{
 static int f_gold ( int arr [ ] , int n , int k ) {
   HashMap < Integer , Integer > um = new HashMap < Integer , Integer > ( ) ;

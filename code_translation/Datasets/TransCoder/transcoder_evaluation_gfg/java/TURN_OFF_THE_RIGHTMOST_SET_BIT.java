@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class TURN_OFF_THE_RIGHTMOST_SET_BIT{
 static int f_gold ( int n ) {
   return n & ( n - 1 ) ;

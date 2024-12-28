@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class WAYS_TRANSFORMING_ONE_STRING_REMOVING_0_CHARACTERS{
 static int f_gold ( String a , String b ) {
   int n = a . length ( ) , m = b . length ( ) ;

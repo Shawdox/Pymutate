@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class LCS_FORMED_CONSECUTIVE_SEGMENTS_LEAST_LENGTH_K{
 static int f_gold ( int k , String s1 , String s2 ) {
   int n = s1 . length ( ) ;

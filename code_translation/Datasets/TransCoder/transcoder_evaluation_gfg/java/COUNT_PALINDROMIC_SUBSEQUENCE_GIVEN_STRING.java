@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_PALINDROMIC_SUBSEQUENCE_GIVEN_STRING{
 static int f_gold ( String str ) {
   int N = str . length ( ) ;

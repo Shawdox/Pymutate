@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 class SORT_ARRAY_APPLYING_GIVEN_EQUATION{
 static void f_gold ( int arr [ ] , int n , int A , int B , int C ) {
   for ( int i = 0 ;

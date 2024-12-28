@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class CALCULATE_MAXIMUM_VALUE_USING_SIGN_TWO_NUMBERS_STRING{
 static int f_gold ( String str ) {
   int res = str . charAt ( 0 ) - '0' ;

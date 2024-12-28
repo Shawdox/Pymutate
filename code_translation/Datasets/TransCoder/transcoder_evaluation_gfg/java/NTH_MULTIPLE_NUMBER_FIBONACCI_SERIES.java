@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NTH_MULTIPLE_NUMBER_FIBONACCI_SERIES{
 public static int f_gold ( int k , int n ) {
   long f1 = 0 , f2 = 1 , f3 ;

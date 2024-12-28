@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_LARGEST_PRIME_FACTOR_NUMBER{
 static long f_gold ( long n ) {
   long maxPrime = - 1 ;

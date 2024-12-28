@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class COUNT_BINARY_STRINGS_K_TIMES_APPEARING_ADJACENT_TWO_SET_BITS{
 static int f_gold ( int n , int k ) {
   int dp [ ] [ ] [ ] = new int [ n + 1 ] [ k + 1 ] [ 2 ] ;

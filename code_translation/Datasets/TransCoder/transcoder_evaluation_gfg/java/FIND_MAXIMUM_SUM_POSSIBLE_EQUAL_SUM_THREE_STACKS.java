@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_MAXIMUM_SUM_POSSIBLE_EQUAL_SUM_THREE_STACKS{
 public static int f_gold ( int stack1 [ ] , int stack2 [ ] , int stack3 [ ] , int n1 , int n2 , int n3 ) {
   int sum1 = 0 , sum2 = 0 , sum3 = 0 ;

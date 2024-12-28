@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PANGRAM_CHECKING{
 public static boolean f_gold ( String str ) {
   boolean [ ] mark = new boolean [ 26 ] ;

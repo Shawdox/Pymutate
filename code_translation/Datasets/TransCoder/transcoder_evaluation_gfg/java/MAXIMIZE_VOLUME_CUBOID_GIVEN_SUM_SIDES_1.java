@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMIZE_VOLUME_CUBOID_GIVEN_SUM_SIDES_1{
 static int f_gold ( int s ) {
   int length = s / 3 ;

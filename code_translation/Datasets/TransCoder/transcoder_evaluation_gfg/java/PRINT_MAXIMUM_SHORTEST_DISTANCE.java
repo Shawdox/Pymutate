@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PRINT_MAXIMUM_SHORTEST_DISTANCE{
 static int f_gold ( int a [ ] , int n , int k ) {
   HashMap < Integer , Integer > b = new HashMap < Integer , Integer > ( ) ;

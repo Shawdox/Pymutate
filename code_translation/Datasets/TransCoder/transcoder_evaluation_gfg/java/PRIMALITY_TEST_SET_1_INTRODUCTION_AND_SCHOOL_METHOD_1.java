@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PRIMALITY_TEST_SET_1_INTRODUCTION_AND_SCHOOL_METHOD_1{
 static boolean f_gold ( int n ) {
   if ( n <= 1 ) return false ;

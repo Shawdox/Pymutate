@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 class SWAP_TWO_NUMBERS_WITHOUT_USING_TEMPORARY_VARIABLE{
 static void f_gold ( int [ ] xp , int [ ] yp ) {
   xp [ 0 ] = xp [ 0 ] ^ yp [ 0 ] ;

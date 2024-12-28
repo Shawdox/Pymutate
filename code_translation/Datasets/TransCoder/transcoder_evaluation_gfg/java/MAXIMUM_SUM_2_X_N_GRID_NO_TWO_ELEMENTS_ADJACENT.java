@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_SUM_2_X_N_GRID_NO_TWO_ELEMENTS_ADJACENT{
 public static int f_gold ( int grid [ ] [ ] , int n ) {
   int incl = Math . max ( grid [ 0 ] [ 0 ] , grid [ 1 ] [ 0 ] ) ;

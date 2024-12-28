@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NEXT_POWER_OF_2_2{
 static int f_gold ( int n ) {
   n -- ;

@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class SMALLEST_DIFFERENCE_PAIR_VALUES_TWO_UNSORTED_ARRAYS{
 static int f_gold ( int A [ ] , int B [ ] , int m , int n ) {
   A = Arrays.copyOfRange( A , 0 , m );

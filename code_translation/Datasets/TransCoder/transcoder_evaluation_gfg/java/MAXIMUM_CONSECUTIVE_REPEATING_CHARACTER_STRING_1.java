@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class MAXIMUM_CONSECUTIVE_REPEATING_CHARACTER_STRING_1{
 static char f_gold ( String str ) {
   int n = str . length ( ) ;

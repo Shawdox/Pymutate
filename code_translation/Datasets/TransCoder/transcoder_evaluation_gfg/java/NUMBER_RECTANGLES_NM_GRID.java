@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class NUMBER_RECTANGLES_NM_GRID{
 public static long f_gold ( int n , int m ) {
   return ( m * n * ( n + 1 ) * ( m + 1 ) ) / 4 ;

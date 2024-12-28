@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_INDEX_GIVEN_FIBONACCI_NUMBER_CONSTANT_TIME{
 static int f_gold ( int n ) {
   if ( n <= 1 ) return n ;

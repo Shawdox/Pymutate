@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class FIND_EXPRESSION_DUPLICATE_PARENTHESIS_NOT{
 static boolean f_gold ( String s ) {
   Stack < Character > Stack = new Stack < > ( ) ;

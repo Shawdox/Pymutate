@@ -8,7 +8,7 @@
 import java.util. *;
 import java.util.stream.*;
 import java.lang.*;
-import javafx.util.Pair;
+
 public class PRIME_NUMBERS{
 static boolean f_gold ( int n ) {
   if ( n <= 1 ) return false ;
