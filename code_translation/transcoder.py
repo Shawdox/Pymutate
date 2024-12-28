@@ -14,8 +14,7 @@ def main(model):
     TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     # Mutations
-    # mutations = ["ConstantUnfoldding", "StringUnfoldding", "IfAddShortCircuiting", "For2While"]
-    mutations = ["For2While"]
+    mutations = ["ConstantUnfoldding", "StringUnfoldding", "IfAddShortCircuiting", "For2While"]
 
     # Commands template
     command_templates = [
