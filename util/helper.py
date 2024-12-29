@@ -107,127 +107,167 @@ def generate_content(client, model_name, prompt, temperature, max_attempts=20):
             time.sleep(1)
     return None
 
-def extract_method_name_java(code):
-    # 匹配方法定义的正则表达式
-    pattern = re.compile(r"(public|private|protected)?\s?(static)?\s?(\w+|\w+\[\])\s(\w+)\s?\(\s?([\w\s,]*?)\s?\)")
+# def extract_method_name_java(code):
+#     # 匹配方法定义的正则表达式
+#     pattern = re.compile(r"(public|private|protected)?\s?(static)?\s?(\w+|\w+\[\])\s(\w+)\s?\(\s?([\w\s,]*?)\s?\)")
     
-    # 查找匹配项
-    method_info = pattern.findall(code)
-    return method_info[0][3]
+#     # 查找匹配项
+#     method_info = pattern.findall(code)
+#     return method_info[0][3]
 
-import re
+# import re
+
+# def extract_first_java_method(code):
+#     lines = code.splitlines()
+#     in_class = False
+#     class_brace_count = 0
+#     method_started = False
+#     method_lines = []
+#     in_method_def = False
+    
+#     method_pattern_start = re.compile(r'^\s*((public|private|protected|static|abstract|final|synchronized|transient|volatile|native|strictfp)\s+)*([a-zA-Z_][a-zA-Z0-9_]*)\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(')
+#     method_pattern_full = re.compile(r'^\s*((public|private|protected|static|abstract|final|synchronized|transient|volatile|native|strictfp)\s+)*([a-zA-Z_][a-zA-Z0-9_]*)\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^\)]*\)\s*\{?')
+#     class_pattern = re.compile(r'^\s*((public|private|protected|static|abstract|final|)\s+)*(class|interface)\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\{?')
+    
+#     for line in lines:
+#         line = line.rstrip('\n')
+        
+#         if line.startswith('@'):
+#             continue  # Skip annotation lines
+        
+#         if not in_class:
+#             if class_pattern.match(line):
+#                 in_class = True
+#                 class_brace_count += line.count('{') - line.count('}')
+#                 if class_brace_count == 0:
+#                     in_class = False
+#                 continue
+#             if method_pattern_full.match(line):
+#                 method_started = True
+#                 method_lines.append(line)
+#                 brace_count = line.count('{') - line.count('}')
+#                 if brace_count == 0:
+#                     method_started = False
+#                     method_lines = []
+#                 continue
+#             if method_pattern_start.match(line):
+#                 in_method_def = True
+#                 method_lines.append(line)
+#                 continue
+#         if in_class:
+#             if not method_started and not in_method_def:
+#                 if method_pattern_full.match(line):
+#                     method_started = True
+#                     method_lines.append(line)
+#                     brace_count = line.count('{') - line.count('}')
+#                     if brace_count == 0:
+#                         method_started = False
+#                         method_lines = []
+#                     continue
+#                 if method_pattern_start.match(line):
+#                     in_method_def = True
+#                     method_lines.append(line)
+#                     continue
+#             if in_method_def:
+#                 method_lines.append(line)
+#                 if line.count(')') >= line.count('('):
+#                     method_started = True
+#                     brace_count = line.count('{') - line.count('}')
+#                     if brace_count == 0:
+#                         method_started = False
+#                         method_lines = []
+#                     in_method_def = False
+#                     continue
+#             if method_started:
+#                 method_lines.append(line)
+#                 brace_count += line.count('{') - line.count('}')
+#                 if brace_count == 0:
+#                     break
+#         else:
+#             if in_method_def:
+#                 method_lines.append(line)
+#                 if line.count(')') >= line.count('('):
+#                     method_started = True
+#                     brace_count = line.count('{') - line.count('}')
+#                     if brace_count == 0:
+#                         method_started = False
+#                         method_lines = []
+#                     in_method_def = False
+#                     continue
+#             if method_started:
+#                 method_lines.append(line)
+#                 brace_count += line.count('{') - line.count('}')
+#                 if brace_count == 0:
+#                     break
+    
+#     # 提取方法头和方法体
+#     method_header_lines = []
+#     method_body_lines = []
+#     brace_count = 0
+#     in_header = True
+#     for line in method_lines:
+#         if in_header:
+#             method_header_lines.append(line)
+#             brace_count += line.count('{') - line.count('}')
+#             if brace_count > 0:
+#                 in_header = False
+#         else:
+#             method_body_lines.append(line)
+    
+#     # 合并方法头成一个字符串
+#     method_header = ''.join(method_header_lines)
+    
+#     # 提取函数名
+#     func_name_match = re.search(r'(\w+)\s*\(', method_header)
+    
+#     # 组合新的方法代码块
+#     new_method_code = method_header + '\n' + '\n'.join(method_body_lines)
+#     if func_name_match:
+#         func_name = func_name_match.group(1)
+#         # 替换函数名
+#         new_method_code = new_method_code.replace(func_name, 'f_filled')
+
+#     return new_method_code
+
 
 def extract_first_java_method(code):
     lines = code.splitlines()
-    in_class = False
-    class_brace_count = 0
-    method_started = False
     method_lines = []
-    in_method_def = False
-    
-    method_pattern_start = re.compile(r'^\s*((public|private|protected|static|abstract|final|synchronized|transient|volatile|native|strictfp)\s+)*([a-zA-Z_][a-zA-Z0-9_]*)\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(')
-    method_pattern_full = re.compile(r'^\s*((public|private|protected|static|abstract|final|synchronized|transient|volatile|native|strictfp)\s+)*([a-zA-Z_][a-zA-Z0-9_]*)\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^\)]*\)\s*\{?')
-    class_pattern = re.compile(r'^\s*((public|private|protected|static|abstract|final|)\s+)*(class|interface)\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\{?')
-    
-    for line in lines:
-        line = line.rstrip('\n')
-        
-        if line.startswith('@'):
-            continue  # Skip annotation lines
-        
-        if not in_class:
-            if class_pattern.match(line):
-                in_class = True
-                class_brace_count += line.count('{') - line.count('}')
-                if class_brace_count == 0:
-                    in_class = False
-                continue
-            if method_pattern_full.match(line):
-                method_started = True
-                method_lines.append(line)
-                brace_count = line.count('{') - line.count('}')
-                if brace_count == 0:
-                    method_started = False
-                    method_lines = []
-                continue
-            if method_pattern_start.match(line):
-                in_method_def = True
-                method_lines.append(line)
-                continue
-        if in_class:
-            if not method_started and not in_method_def:
-                if method_pattern_full.match(line):
-                    method_started = True
-                    method_lines.append(line)
-                    brace_count = line.count('{') - line.count('}')
-                    if brace_count == 0:
-                        method_started = False
-                        method_lines = []
-                    continue
-                if method_pattern_start.match(line):
-                    in_method_def = True
-                    method_lines.append(line)
-                    continue
-            if in_method_def:
-                method_lines.append(line)
-                if line.count(')') >= line.count('('):
-                    method_started = True
-                    brace_count = line.count('{') - line.count('}')
-                    if brace_count == 0:
-                        method_started = False
-                        method_lines = []
-                    in_method_def = False
-                    continue
-            if method_started:
-                method_lines.append(line)
-                brace_count += line.count('{') - line.count('}')
-                if brace_count == 0:
-                    break
-        else:
-            if in_method_def:
-                method_lines.append(line)
-                if line.count(')') >= line.count('('):
-                    method_started = True
-                    brace_count = line.count('{') - line.count('}')
-                    if brace_count == 0:
-                        method_started = False
-                        method_lines = []
-                    in_method_def = False
-                    continue
-            if method_started:
-                method_lines.append(line)
-                brace_count += line.count('{') - line.count('}')
-                if brace_count == 0:
-                    break
-    
-    # 提取方法头和方法体
-    method_header_lines = []
-    method_body_lines = []
     brace_count = 0
-    in_header = True
-    for line in method_lines:
-        if in_header:
-            method_header_lines.append(line)
-            brace_count += line.count('{') - line.count('}')
-            if brace_count > 0:
-                in_header = False
+    in_method = False
+
+    method_pattern = re.compile(
+        r'^\s*((public|private|protected|static|abstract|final|synchronized|transient|volatile|native|strictfp)\s+)*'
+        r'[a-zA-Z_][a-zA-Z0-9_]*\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\('
+    )
+
+    for line in lines:
+        stripped_line = line.strip()
+
+        if not in_method:
+            if method_pattern.match(stripped_line):
+                in_method = True  # Start of a method
+                method_lines.append(line)
+                brace_count += line.count('{') - line.count('}')
         else:
-            method_body_lines.append(line)
-    
-    # 合并方法头成一个字符串
-    method_header = ''.join(method_header_lines)
-    
-    # 提取函数名
-    func_name_match = re.search(r'(\w+)\s*\(', method_header)
-    
-    # 组合新的方法代码块
-    new_method_code = method_header + '\n' + '\n'.join(method_body_lines)
+            method_lines.append(line)
+            brace_count += line.count('{') - line.count('}')
+            if brace_count == 0:  # End of the method
+                break
+
+    if not method_lines:
+        return "No method found"
+
+    # Combine the extracted method lines
+    method_code = '\n'.join(method_lines)
+
+    # Extract the method name and replace it with "f_filled"
+    func_name_match = re.search(r'\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(', method_code)
     if func_name_match:
         func_name = func_name_match.group(1)
-        # 替换函数名
-        new_method_code = new_method_code.replace(func_name, 'f_filled')
+        method_code = method_code.replace(func_name, 'f_filled', 1)
 
-    return new_method_code
+    return method_code
 
 
 def modify_generated_content(code):

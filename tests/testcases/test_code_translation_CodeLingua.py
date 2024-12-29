@@ -1,7 +1,7 @@
 import pytest
 import sys,os
 sys.path.append("../../")
-from code_translation.Mutate import execute_code, evaluate_code, mutate_dataset_once
+from code_translation_mutate.Mutate import execute_code, evaluate_code, mutate_dataset_once
 from util.util import *
 from util.mutators import *
 
