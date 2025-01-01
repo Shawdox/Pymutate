@@ -69,8 +69,8 @@ def get_output_file_path_for_translation(dataset_name, model_name, mutate_method
 def create_client(model_name):
     if "gpt" in model_name:
         return OpenAI(
-            base_url="https://api.openai.com/v1",
-            api_key="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"
+            base_url="https://openrouter.ai/api/v1",
+            api_key="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",
         )
     elif model_name == "deepseek-chat":
         return OpenAI(
@@ -82,7 +82,8 @@ def create_client(model_name):
 
 
 def generate_content(client, model_name, prompt, temperature, max_attempts=20):
-    for _ in range(max_attempts):
+    error_message = []
+    for a in range(max_attempts):
         try:
             if "gpt" in model_name \
                 or "llama-v3" in model_name \
@@ -103,8 +104,10 @@ def generate_content(client, model_name, prompt, temperature, max_attempts=20):
                 )
                 return result.choices[0].text
         except Exception as e:
+            error_message.append(traceback.format_exc())
             print(e)
-            time.sleep(1)
+            time.sleep(60)
+    print(*set(error_message), sep='\n')
     return None
 
 # def extract_method_name_java(code):
