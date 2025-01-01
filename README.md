@@ -1,8 +1,8 @@
 ### Code Reasoning
 
-Mutate python code on CruxEval.
+Mutate python code on CRUXEval.
 
-- `Mutate.py`: Mutate the python samples in CruxEval.
+- `Mutate.py`: Mutate the python samples in CRUXEval.
 
 
 
