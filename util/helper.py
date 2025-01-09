@@ -67,35 +67,20 @@ def get_output_file_path_for_translation(dataset_name, model_name, mutate_method
 
 
 def create_client(model_name):
-    if "gpt" in model_name:
-        return OpenAI(
-            base_url="https://openrouter.ai/api/v1",
-            api_key="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",
-        )
-    elif model_name == "deepseek-chat":
-        return OpenAI(
-            base_url="https://api.deepseek.com/v1",
-            api_key="sk-6cb72a4ef04a4b149fc3e2189b8c3ca4",
-        )
+    if "star" in model_name:
+        return Fireworks(api_key="fw_3ZfzgdBmufwmNxAGZyye6E8B")     
     else:
-        return Fireworks(api_key="fw_3ZfzgdBmufwmNxAGZyye6E8B")
+        return OpenAI(
+                base_url="https://openrouter.ai/api/v1",
+                api_key="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",
+            )
 
 
 def generate_content(client, model_name, prompt, temperature, max_attempts=20):
     error_message = []
     for a in range(max_attempts):
         try:
-            if "gpt" in model_name \
-                or "llama-v3" in model_name \
-                or model_name == "deepseek-chat":
-                result = client.chat.completions.create(
-                    messages=[{'role': 'user', 'content': prompt}],
-                    model=model_name,
-                    temperature=temperature,
-                    max_tokens=750
-                )
-                return result.choices[0].message.content
-            else:
+            if "star" in model_name:
                 result = client.completion.create(
                     prompt=prompt,
                     model=model_name,
@@ -103,6 +88,14 @@ def generate_content(client, model_name, prompt, temperature, max_attempts=20):
                     max_tokens=750
                 )
                 return result.choices[0].text
+            else:
+                result = client.chat.completions.create(
+                    messages=[{'role': 'user', 'content': prompt}],
+                    model=model_name,
+                    temperature=temperature,
+                    max_tokens=750
+                )
+                return result.choices[0].message.content
         except Exception as e:
             error_message.append(traceback.format_exc())
             print(e)

@@ -59,6 +59,8 @@ with open(file_path, "r", encoding="utf-8") as file:
         record = json.loads(line.strip())
         samples.append(record)
 
+to_remove = []
+
 for item in tqdm(samples):
     # 将各个变量解包
     old_id = item.get("id")
@@ -76,6 +78,7 @@ for item in tqdm(samples):
         with open(ori_java_file_path, 'r') as file:
             content = file.read()
     except:
+        to_remove.append(old_id)
         continue
 
     # 替换 //TOFILL 标记为生成的内容
@@ -122,4 +125,5 @@ for item in tqdm(samples):
 
 with open(file_path, "w", encoding="utf-8") as file:
     for item in samples:
-        file.write(json.dumps(item) + "\n")
+        if item.get("id") not in to_remove:
+            file.write(json.dumps(item) + "\n")

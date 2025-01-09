@@ -52,7 +52,7 @@ for item in samples:
 
     generated_content = generated_content.replace('`', '').replace('python', '').strip()
     if "==" in generated_content and \
-        ('gpt' in model_name or 'llama-v3' in model_name or 'CodeLlama' in model_name):
+        ('gpt' in model_name or 'llama-3.1' in model_name or 'deepseek' in model_name or 'qwen' in model_name):
         generated_content = generated_content.split("==")[-1].strip()
     generated_content = generated_content.split("\n", 1)[0].split("# done", 1)[0]
 
