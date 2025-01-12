@@ -224,42 +224,6 @@ class AssignUnfoldding(cst.CSTTransformer):
 
 # m = 0 --> m = 3 - 3
 class ConstantUnfoldding(cst.CSTTransformer):
-    '''
-    def leave_Assign(self, original_node: cst.Assign, updated_node: cst.Assign):
-        Assign_targets = original_node.targets[0]
-        Assign_value = original_node.value
-        if isinstance(Assign_value, cst.Integer):
-            num = int(Assign_value.value)
-            randnum = random.randint(1, 100)
-            num = num - randnum
-            if num >= 0:
-                new_assign = cst.Assign(
-                    targets = [Assign_targets],
-                    value = cst.BinaryOperation(
-                            left = cst.Integer(value = str(randnum)),
-                            operator= cst.Add(),
-                            right = cst.Integer(value = str(num)),
-                            lpar = [cst.LeftParen(),],
-                            rpar = [cst.RightParen(),],
-                        )
-                )
-            else:
-                new_assign = cst.Assign(
-                    targets = [Assign_targets],
-                    value = cst.BinaryOperation(
-                            left = cst.Integer(value = str(randnum)),
-                            operator= cst.Add(),
-                            right = cst.UnaryOperation(
-                                operator = cst.Minus(),
-                                expression = cst.Integer(value = str(-1*num)),
-                            ),
-                            lpar = [cst.LeftParen(),],
-                            rpar = [cst.RightParen(),],
-                        )
-                )
-            return cst.FlattenSentinel([new_assign,])
-        return original_node
-    '''
     def leave_Integer(self, original_node: cst.Integer, updated_node: cst.Integer):
         if original_node.value[:2] == '0x' or original_node.value[:2] == '0X':
             return original_node

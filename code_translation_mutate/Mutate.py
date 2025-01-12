@@ -85,6 +85,8 @@ def mutate_dataset_once(mutator, dataset):
     new_id = 0
     for idx in range(0, len(dataset)):
         code = dataset[idx]["code"]
+        if dataset[idx]["id"] in SKIP_LIST:
+            continue
         #test_IO = dataset[idx]["test_IO"]
         if "old_id" in dataset[idx].keys():
             original_id = dataset[idx]["old_id"]
@@ -150,7 +152,8 @@ def evaluate_dataset(dataset_path):
     return error_code_idx
 
 def MultiMutate():
-    multi_path = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/mutated_datasets/MultiMutated"
+    res = dict()
+    multi_path = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/mutated_datasets/MultiMutated/Humaneval-x"
     for a in ASSIGN:
         for b in LOOP:
             for c in JUMP:
@@ -169,16 +172,18 @@ def MultiMutate():
                     max_str = new_name if len(new_dataset) >= max_num else max_str
 
                 INFO_PRINT(info=f'max_num = {max_num}, {max_str}')
-                save_data(new_dataset, f"{multi_path}/{max_str}.jsonl")
-                err_idx = evaluate_dataset(f"{multi_path}/{max_str}.jsonl")
+                res[max_str] = max_num
+                save_data(new_dataset, f"{multi_path}/{max_str}_{max_num}.jsonl")
+                #err_idx = evaluate_dataset(f"{multi_path}/{max_str}.jsonl")
                 #flag = input('Exclude them? [0/1]')
-                flag = '1'
-                if flag == '1':
-                    exclude_dataset(f"{multi_path}/{new_name}.jsonl", err_idx)
+                #flag = '1'
+                #if flag == '1':
+                #    exclude_dataset(f"{multi_path}/{new_name}.jsonl", err_idx)
+    return res
                 
 if __name__ == "__main__":
     # Load the dataset
-    SKIP_LIST = ['codeforces_379_A', 'atcoder_ABC150_D']
+    SKIP_LIST = ['codeforces_379_A', 'atcoder_ABC150_D', 'Python/106']
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/CodeLingua/avatar/avatar.jsonl"
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/CodeLingua/codenet/codenet_python.jsonl"
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/TransCoder/cleaned_testable_samples_python.jsonl"
@@ -187,10 +192,13 @@ if __name__ == "__main__":
     LOOP = [For2While]
     JUMP = [IfReverse, IfAddShortCircuiting]
 
-    MUTATORS = ASSIGN + LOOP + JUMP
+    res = MultiMutate()
+    for str, num in res.items():
+        print(str, num)
+    #MUTATORS = ASSIGN + LOOP + JUMP
     
-    dataset = load_dataset(DATASET)
-    target_dir = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/mutated_datasets/SingleMutated/Humaneval-x"
-    for mutator in MUTATORS:
-        new_dataset = mutate_dataset_once(mutator, dataset)
-        save_data(new_dataset, target_dir+f"/{mutator.__name__}.jsonl")
+    #dataset = load_dataset(DATASET)
+    #target_dir = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/mutated_datasets/MultiMutated/CodeLingua"
+    #for mutator in MUTATORS:
+    #    new_dataset = mutate_dataset_once(mutator, dataset)
+    #    save_data(new_dataset, target_dir+f"/{mutator.__name__}.jsonl")
