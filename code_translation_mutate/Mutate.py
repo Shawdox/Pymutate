@@ -153,27 +153,28 @@ def evaluate_dataset(dataset_path):
 
 def MultiMutate():
     res = dict()
-    multi_path = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/mutated_datasets/MultiMutated/Humaneval-x"
+    multi_path = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/mutated_datasets/MultiMutated/TransCoder/two"
     for a in ASSIGN:
         for b in LOOP:
             for c in JUMP:
-                MUTATORS = [a, b, c]
-                INFO_PRINT('Choose mutators:',' '.join(map(lambda x:x.__name__, MUTATORS)))
-                perms = list(permutations(MUTATORS, len(MUTATORS)))
-                max_num = 0
-                max_str = ""
-                for idx, mutator_tuple in enumerate(perms):
-                    tmp_str = ' -> '.join(map(lambda x:x.__name__, mutator_tuple))
-                    INFO_PRINT(f'[{idx+1}/{len(perms)}]',f'Mutate with: {tmp_str}')
-                    new_dataset = multi_mutate(mutator_tuple, DATASET)
-                    new_name = "_".join(map(lambda x:x.__name__, mutator_tuple))
-                    
-                    max_num = len(new_dataset) if len(new_dataset) >= max_num else max_num
-                    max_str = new_name if len(new_dataset) >= max_num else max_str
+                #MUTATORS = [a, b, c]
+                for MUTATORS in [[a,b],[a,c],[b,c]]:
+                    INFO_PRINT('Choose mutators:',' '.join(map(lambda x:x.__name__, MUTATORS)))
+                    perms = list(permutations(MUTATORS, len(MUTATORS)))
+                    max_num = 0
+                    max_str = ""
+                    for idx, mutator_tuple in enumerate(perms):
+                        tmp_str = ' -> '.join(map(lambda x:x.__name__, mutator_tuple))
+                        INFO_PRINT(f'[{idx+1}/{len(perms)}]',f'Mutate with: {tmp_str}')
+                        new_dataset = multi_mutate(mutator_tuple, DATASET)
+                        new_name = "_".join(map(lambda x:x.__name__, mutator_tuple))
+                        
+                        max_num = len(new_dataset) if len(new_dataset) >= max_num else max_num
+                        max_str = new_name if len(new_dataset) >= max_num else max_str
 
-                INFO_PRINT(info=f'max_num = {max_num}, {max_str}')
-                res[max_str] = max_num
-                save_data(new_dataset, f"{multi_path}/{max_str}_{max_num}.jsonl")
+                    INFO_PRINT(info=f'max_num = {max_num}, {max_str}')
+                    res[max_str] = max_num
+                    save_data(new_dataset, f"{multi_path}/codenet_{max_str}_{max_num}.jsonl")
                 #err_idx = evaluate_dataset(f"{multi_path}/{max_str}.jsonl")
                 #flag = input('Exclude them? [0/1]')
                 #flag = '1'
@@ -186,11 +187,13 @@ if __name__ == "__main__":
     SKIP_LIST = ['codeforces_379_A', 'atcoder_ABC150_D', 'Python/106']
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/CodeLingua/avatar/avatar.jsonl"
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/CodeLingua/codenet/codenet_python.jsonl"
-    #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/TransCoder/cleaned_testable_samples_python.jsonl"
-    DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/Humaneval-x/humanevalx-python.jsonl"
-    ASSIGN = [AugAssign2Assign, Assign2Ternary, Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding, StringUnfoldding]
+    DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/TransCoder/cleaned_testable_samples_python.jsonl"
+    #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/Humaneval-x/humanevalx-python.jsonl"
+    #ASSIGN = [AugAssign2Assign, Assign2Ternary, Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding, StringUnfoldding]
+    ASSIGN = [ConstantUnfoldding]
     LOOP = [For2While]
-    JUMP = [IfReverse, IfAddShortCircuiting]
+    #JUMP = [IfReverse, IfAddShortCircuiting]
+    JUMP = [IfAddShortCircuiting]
 
     res = MultiMutate()
     for str, num in res.items():
