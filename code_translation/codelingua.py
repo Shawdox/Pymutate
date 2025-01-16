@@ -16,8 +16,8 @@ def main(model):
     TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     # Mutations
-    # mutations = ["ConstantUnfoldding", "StringUnfoldding", "IfAddShortCircuiting", "For2While"]
-    mutations = ["VarNorm", "VarRand3"]
+    mutations = ["ConstantUnfoldding", "VarNorm", "VarRand3", "IfAddShortCircuiting", "For2While"]
+    # mutations = ["VarNorm", "VarRand3"]
 
     # Commands template
     command_templates = [

@@ -17,7 +17,7 @@ def main():
     parser = argparse.ArgumentParser(description="A simple argument parser.")
     parser.add_argument("--model", type=str, help="Model name")
     parser.add_argument("--temp", type=float, help="Temperature")
-    parser.add_argument("--nsample", type=int, default=10, help="N sample in Pass@k")
+    parser.add_argument("--nsample", type=int, default=5, help="N sample in Pass@k")
     parser.add_argument("--mutate", type=str, help="Mutate method")
     parser.add_argument("--curtime", type=str, help="Current time")
     parser.add_argument("--sourlang", type=str, default="Python", help="Source language")

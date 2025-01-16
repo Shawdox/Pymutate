@@ -32,7 +32,7 @@ parser = argparse.ArgumentParser(description="A simple argument parser.")
 parser.add_argument("--dataset", type=str, help="Dataset")
 parser.add_argument("--model", type=str, help="Model name")
 parser.add_argument("--temp", type=float, help="Temperature")
-parser.add_argument("--nsample", type=int, default=10, help="N sample in Pass@k")
+parser.add_argument("--nsample", type=int, default=5, help="N sample in Pass@k")
 parser.add_argument("--mutate", type=str, help="Mutate method")
 parser.add_argument("--curtime", type=str, help="Current time")
 parser.add_argument("--sourlang", type=str, default="Python", help="Source language")
@@ -76,6 +76,8 @@ with open(file_path, "r", encoding="utf-8") as file:
         except:
             pass
 
+jump_id = []
+
 for item in tqdm(samples):
     # 将各个变量解包
     old_id = item.get("id")
@@ -90,6 +92,9 @@ for item in tqdm(samples):
     f_in = test_io[0]['input']
     f_out = test_io[0]['output']
 
+    if not generated_content:
+        continue
+
     # 提取生成的 Java 代码
     target_lang = target_lang.lower()
     if raw_generated_content.find(f"```{target_lang}") != -1:
@@ -97,6 +102,20 @@ for item in tqdm(samples):
         exec_code = generated_content[:generated_content.find("```")]
     else:
         exec_code = extract_import_and_class(raw_generated_content)
+    
+    if "Java\n" in exec_code:
+        exec_code = exec_code.replace("Java\n", "")
+
+    if old_id in jump_id:
+        item["generated_content"] = exec_code
+        item["execution_success"] = False
+        continue
+
+    if "class Main" not in exec_code:
+        item["generated_content"] = exec_code
+        item["execution_success"] = False
+        jump_id.append(old_id)
+        continue
 
     # 编译并执行 Java 代码
     try:
