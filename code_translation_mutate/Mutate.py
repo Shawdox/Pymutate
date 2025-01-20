@@ -153,7 +153,7 @@ def evaluate_dataset(dataset_path):
 
 def MultiMutate():
     res = dict()
-    multi_path = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/mutated_datasets/MultiMutated/TransCoder/two"
+    multi_path = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_reasoning/new_data/MultiMutated/two"
     for a in ASSIGN:
         for b in LOOP:
             for c in JUMP:
@@ -174,7 +174,7 @@ def MultiMutate():
 
                     INFO_PRINT(info=f'max_num = {max_num}, {max_str}')
                     res[max_str] = max_num
-                    save_data(new_dataset, f"{multi_path}/codenet_{max_str}_{max_num}.jsonl")
+                    save_data(new_dataset, f"{multi_path}/{max_str}_{max_num}.jsonl")
                 #err_idx = evaluate_dataset(f"{multi_path}/{max_str}.jsonl")
                 #flag = input('Exclude them? [0/1]')
                 #flag = '1'
@@ -185,9 +185,11 @@ def MultiMutate():
 if __name__ == "__main__":
     # Load the dataset
     SKIP_LIST = ['codeforces_379_A', 'atcoder_ABC150_D', 'Python/106']
+    DATASET = "/home/WORK/PAPER4/LLMreasoning/cruxeval/data/cruxeval.jsonl"
+    
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/CodeLingua/avatar/avatar.jsonl"
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/CodeLingua/codenet/codenet_python.jsonl"
-    DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/TransCoder/cleaned_testable_samples_python.jsonl"
+    #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/TransCoder/cleaned_testable_samples_python.jsonl"
     #DATASET = "/home/WORK/PAPER4/LLMreasoning/mutate_CRUXEval/code_translation/Datasets/Humaneval-x/humanevalx-python.jsonl"
     #ASSIGN = [AugAssign2Assign, Assign2Ternary, Add_IndependentVar, AssignUnfoldding, ConstantUnfoldding, StringUnfoldding]
     ASSIGN = [ConstantUnfoldding]
