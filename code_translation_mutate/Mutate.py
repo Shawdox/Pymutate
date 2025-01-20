@@ -108,6 +108,8 @@ def mutate_dataset_once(mutator, dataset):
         new_data = {#'language': "Python",
                     'code': new_code, 
                     #'test_IO': test_IO,
+                    'input': dataset[idx]["input"],
+                    'output': dataset[idx]["output"],
                     'id':f"{mutator.__name__}_sample_from_{original_id}_to_{new_id}", 
                     'old_id':original_id}
         if new_code != code:
