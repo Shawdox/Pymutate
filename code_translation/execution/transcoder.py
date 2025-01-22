@@ -56,8 +56,11 @@ samples = []
 with open(file_path, "r", encoding="utf-8") as file:
     for line in file:
         # 解析 JSON 数据
-        record = json.loads(line.strip())
-        samples.append(record)
+        try:
+            record = json.loads(line.strip())
+            samples.append(record)
+        except:
+            pass
 
 to_remove = []
 
@@ -74,6 +77,9 @@ for item in tqdm(samples):
 
     if "Java\n" in generated_content:
         generated_content = generated_content.replace("Java\n", "")
+
+    if "static" not in generated_content:
+        generated_content = generated_content.replace("public", "public static")
 
     ori_java_file_path = f'code_translation/Datasets/TransCoder/transcoder_evaluation_gfg/java/{old_id}.java'
     # 读取原始文件内容

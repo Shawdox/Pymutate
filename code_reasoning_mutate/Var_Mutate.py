@@ -39,6 +39,13 @@ reserved_keywords = {
 # Load dataset
 dataset = load_dataset("cruxeval-org/cruxeval")
 
+ds = []
+# 从jsonl中读取源程序
+with open('code_reasoning/new_data/MultiMutated/two/For2While_ConstantUnfoldding_327.jsonl', 'r', encoding='utf-8') as file:
+    for line in file:
+        json_object = json.loads(line)
+        ds.append(json_object)
+
 # List to store processed data
 processed_entries = []
 
@@ -46,12 +53,14 @@ processed_entries = []
 output_prefix = "VarNorm"
 
 # Process test set
-for item in tqdm(dataset['test'], desc="Processing test set"):
+for item in tqdm(ds, desc="Processing test set"):
     original_code = item['code'] + f"\nassert f({item['input']}) == "
-    modified_code = mutate.replace_variables_with_norm(original_code, reserved_keywords)
+    # modified_code = mutate.replace_variables_with_norm(original_code, reserved_keywords)
+    modified_code = mutate.replace_variables_with_random(original_code, 3, reserved_keywords, hash(item['old_id']))
+
 
     processed_entry = {
-        "old_id": item['id'],
+        "old_id": item['old_id'],
         "code": modified_code,
         "input": item['input'],
         "output": item['output']

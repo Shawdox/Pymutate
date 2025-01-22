@@ -33,16 +33,17 @@ def main():
     output_file = get_output_file_path(model_name, mutate_method, temperature, current_time)
 
     ds = load_dataset_with_retry("cruxeval-org/cruxeval")
-    if mutate_method.count('_') < 2:
+    try:
         mutate_codes = load_mutate_codes(f"code_reasoning/new_data/SingleMutated/{mutate_method}.jsonl")
-    else:
+    except:
         mutate_codes = load_mutate_codes(f"code_reasoning/new_data/MultiMutated/{mutate_method}.jsonl")
 
     try:
         with open(output_file, 'w') as file:
             for old_id, mutate_code in tqdm(mutate_codes.items()):
                 code = ds['test']['code'][old_id] + f"\nassert f({ds['test']['input'][old_id]}) =="
-                if "VarNorm" in mutate_method or "VarRand" in mutate_method:
+                if "VarNorm" in mutate_method or "VarRand" in mutate_method or \
+                    "FCVR3" in mutate_method or "ICVN" in mutate_method:
                     new_code = mutate_code
                 else:
                     new_code = mutate_code + f"\nassert f({ds['test']['input'][old_id]}) =="
