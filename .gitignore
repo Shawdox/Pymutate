@@ -9,3 +9,4 @@ __pycache__/
 **/result/
 mail.py
 /code_translation/Datasets/Humaneval-x/humaneval-x/
+run.sh
