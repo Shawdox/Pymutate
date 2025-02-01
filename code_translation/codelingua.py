@@ -7,10 +7,10 @@ def run_command(command):
     if result.returncode != 0:
         print(f"Error: Command failed with return code {result.returncode}")
 
-def main(model):
+def main(model, dataset):
     # Constants
     TEMP = "0.2"
-    DATASET = "codenet"
+    DATASET = dataset
 
     # Get current timestamp
     TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -40,6 +40,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Run codelingua pipeline.")
     parser.add_argument("--model", required=True, help="The model to use (e.g., gpt-4o).")
+    parser.add_argument("--dataset", required=True, help="avatar/codenet")
     args = parser.parse_args()
 
-    main(args.model)
+    main(args.model, args.dataset)

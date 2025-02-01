@@ -73,12 +73,16 @@ for item in tqdm(samples):
     success_flag = item.get("execution_success")
     raw_generated_content = item.get("raw_generated_content")
 
-    generated_content = modify_generated_content(raw_generated_content)
+    if not generated_content:
+        continue
 
-    if "Java\n" in generated_content:
+    generated_content = modify_generated_content(raw_generated_content)
+    
+
+    if generated_content and "Java\n" in generated_content:
         generated_content = generated_content.replace("Java\n", "")
 
-    if "static" not in generated_content:
+    if generated_content and "static" not in generated_content:
         generated_content = generated_content.replace("public", "public static")
 
     ori_java_file_path = f'code_translation/Datasets/TransCoder/transcoder_evaluation_gfg/java/{old_id}.java'
