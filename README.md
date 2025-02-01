@@ -35,13 +35,9 @@ https://huggingface.co/datasets/ziwenyd/transcoder-geeksforgeeks
 
 ### How to Run
 ```
+pip install vllm
+vllm serve <model_name> --dtype auto --api-key token-abc123 --gpu-memory-utilization 0.9 --max-model-len 4096
 python code_reasoning/reasoning.py --model <model_name>
 python code_translation/codelingua.py --model <model_name> --dataset [avatar|codenet]
 python code_translation/transcoder.py --model <model_name>
 ```
-
-
-### Testing Results
-https://docs.google.com/spreadsheets/d/1yL7ayoBuShTkTuEwIWZKzHYcVFu5u5Rv7GNG-qxscdU/edit?gid=0#gid=0
-
-

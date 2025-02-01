@@ -7,7 +7,6 @@ import traceback
 
 from datasets import load_dataset
 from openai import OpenAI
-from fireworks.client import Fireworks
 
 
 def load_dataset_with_retry(dataset_name, max_attempts=20, delay=1):
@@ -67,28 +66,23 @@ def get_output_file_path_for_translation(dataset_name, model_name, mutate_method
 
 
 def create_client(model_name):
-    if "star" in model_name:
-        return Fireworks(api_key="fw_3ZfzgdBmufwmNxAGZyye6E8B")     
+    if "gpt" in model_name or "deepseek-chat" in model_name or "llama-3.1" in model_name:
+        return OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key="<API-KEY>",
+        )
     else:
         return OpenAI(
-                base_url="https://openrouter.ai/api/v1",
-                api_key="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",
-            )
+            base_url="http://localhost:8000/v1",
+            api_key="token-abc123",
+        )
 
 
 def generate_content(client, model_name, prompt, temperature, max_attempts=20):
     error_message = []
     for a in range(max_attempts):
         try:
-            if "star" in model_name:
-                result = client.completion.create(
-                    prompt=prompt,
-                    model=model_name,
-                    temperature=temperature,
-                    max_tokens=750
-                )
-                return result.choices[0].text
-            else:
+            if "star" not in model_name:
                 result = client.chat.completions.create(
                     messages=[{'role': 'user', 'content': prompt}],
                     model=model_name,
@@ -96,6 +90,14 @@ def generate_content(client, model_name, prompt, temperature, max_attempts=20):
                     max_tokens=750
                 )
                 return result.choices[0].message.content
+            else:
+                result = client.completions.create(
+                    prompt=prompt,
+                    model=model_name,
+                    temperature=temperature,
+                    max_tokens=50 if "Based on the given Python code, which may contain errors," in prompt else 500
+                )
+                return result.choices[0].text
         except Exception as e:
             error_message.append(traceback.format_exc())
             print(e)
